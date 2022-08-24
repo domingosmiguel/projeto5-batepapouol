@@ -1,0 +1,117 @@
+/*  
+   =========
+     Fonts
+   =========
+*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/*  
+   =============
+     Variables
+   =============
+*/
+$font: "Roboto", sans-serif;
+$white: rgb(255, 255, 255);
+$grey: rgb(243, 243, 243);
+$dark-grey: rgb(220, 220, 220);
+$pink: rgb(255, 222, 222);
+$black: rgb(0, 0, 0);
+$time-grey: rgb(170, 170, 170);
+$button-grey: rgb(231, 231, 231);
+$button-text-grey: rgb(105, 105, 105);
+$check-green: rgb(40, 187, 37);
+$width: 100vw;
+
+/* --title-green: rgb(117, 183, 158);
+     --border-green: rgb(153, 206, 168);
+     --card-green: rgb(167, 233, 175);
+     --black: rgba(0, 0, 0, 0.3);
+     --card-width: 117px;
+     --card-height: 146px;
+     --transition: all 0.5s;
+     --border-radius: 5px;
+     --spacing: 17px; */
+/*  
+   =================
+     Global Styles
+   =================
+*/
+* {
+     box-sizing: border-box;
+}
+.dsp-flex {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+/*  
+   ===============
+     Chat layout
+   ===============
+*/
+
+body {
+     background-color: $grey;
+     font-family: $font;
+     font-weight: 400;
+}
+header {
+     background-color: $white;
+     width: $width;
+     height: 80px;
+     padding: 0 22px;
+     box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.05);
+     margin-bottom: 26px;
+     position: sticky;
+     top: 0;
+
+     ion-icon {
+          width: 45px;
+          height: 45px;
+     }
+}
+main {
+     height: 200vh;
+}
+footer {
+     background-color: $white;
+     width: $width;
+     height: 80px;
+     padding: 0 18px;
+     box-shadow: 0px -4px 6px 0px rgba(0, 0, 0, 0.05);
+     margin-top: 26px;
+     position: sticky;
+     bottom: 0;
+
+     ion-icon {
+          width: 32px;
+          height: 32px;
+     }
+     ::-webkit-input-placeholder {
+          color: $black;
+     }
+     input {
+          color: $black;
+          border: none;
+          width: 200px;
+          font-size: 18px;
+          line-height: 21px;
+          letter-spacing: 0em;
+          text-align: left;
+
+          &:placeholder-shown {
+               font-style: italic;
+
+               // font-style: normal;
+          }
+          &:focus {
+               outline: none;
+          }
+     }
+}
+
+/*  
+   ==========
+     
+   ==========
+*/

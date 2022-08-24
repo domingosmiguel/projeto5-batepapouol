@@ -1,0 +1,111 @@
+/*  
+   =========
+     Fonts
+   =========
+*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+/*  
+   =============
+     Variables
+   =============
+*/
+/* --title-green: rgb(117, 183, 158);
+     --border-green: rgb(153, 206, 168);
+     --card-green: rgb(167, 233, 175);
+     --black: rgba(0, 0, 0, 0.3);
+     --card-width: 117px;
+     --card-height: 146px;
+     --transition: all 0.5s;
+     --border-radius: 5px;
+     --spacing: 17px; */
+/*  
+   =================
+     Global Styles
+   =================
+*/
+* {
+  box-sizing: border-box;
+}
+
+.dsp-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*  
+   ===============
+     Chat layout
+   ===============
+*/
+body {
+  background-color: rgb(243, 243, 243);
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+header {
+  background-color: rgb(255, 255, 255);
+  width: 100vw;
+  height: 80px;
+  padding: 0 22px;
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.05);
+  margin-bottom: 26px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+header ion-icon {
+  width: 45px;
+  height: 45px;
+}
+
+main {
+  height: 200vh;
+}
+
+footer {
+  background-color: rgb(255, 255, 255);
+  width: 100vw;
+  height: 80px;
+  padding: 0 18px;
+  box-shadow: 0px -4px 6px 0px rgba(0, 0, 0, 0.05);
+  margin-top: 26px;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+}
+footer ion-icon {
+  width: 32px;
+  height: 32px;
+}
+footer ::-webkit-input-placeholder {
+  color: rgb(0, 0, 0);
+}
+footer input {
+  color: rgb(0, 0, 0);
+  border: none;
+  width: 200px;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+footer input:-moz-placeholder-shown {
+  font-style: italic;
+}
+footer input:-ms-input-placeholder {
+  font-style: italic;
+}
+footer input:placeholder-shown {
+  font-style: italic;
+}
+footer input:focus {
+  outline: none;
+}
+
+/*  
+   ==========
+
+   ==========
+*//*# sourceMappingURL=style.css.map */

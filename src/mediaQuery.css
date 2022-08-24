@@ -1,0 +1,23 @@
+/* @media (max-width: 415px) {
+     h1 {
+          font-size: 36px;
+          line-height: 42px;
+     }
+     header {
+          margin: 40px 25px 15px;
+     }
+     header.desktop {
+          display: none;
+     }
+     header.mobile {
+          display: block;
+     }
+     table {
+          flex-direction: column;
+          align-items: center;
+     }
+     div.stopwatch {
+          top: -20px;
+          right: 35px;
+     }
+} */
