@@ -9,15 +9,6 @@
      Variables
    =============
 */
-/* --title-green: rgb(117, 183, 158);
-     --border-green: rgb(153, 206, 168);
-     --card-green: rgb(167, 233, 175);
-     --black: rgba(0, 0, 0, 0.3);
-     --card-width: 117px;
-     --card-height: 146px;
-     --transition: all 0.5s;
-     --border-radius: 5px;
-     --spacing: 17px; */
 /*  
    =================
      Global Styles
@@ -42,6 +33,7 @@ body {
   background-color: rgb(243, 243, 243);
   font-family: "Roboto", sans-serif;
   font-weight: 400;
+  height: 100vh;
 }
 
 header {
@@ -61,31 +53,31 @@ header ion-icon {
 }
 
 main {
-  height: 200vh;
+  min-height: calc(100% - 186px);
 }
 
 footer {
   background-color: rgb(255, 255, 255);
   width: 100vw;
   height: 80px;
-  padding: 0 18px;
+  padding-left: 18px;
   box-shadow: 0px -4px 6px 0px rgba(0, 0, 0, 0.05);
-  margin-top: 26px;
   position: -webkit-sticky;
   position: sticky;
   bottom: 0;
 }
 footer ion-icon {
   width: 32px;
-  height: 32px;
+  height: 100%;
+  margin: 0 18px;
 }
 footer ::-webkit-input-placeholder {
   color: rgb(0, 0, 0);
 }
 footer input {
+  height: 30px;
   color: rgb(0, 0, 0);
   border: none;
-  width: 200px;
   font-size: 18px;
   line-height: 21px;
   letter-spacing: 0em;
@@ -93,19 +85,61 @@ footer input {
 }
 footer input:-moz-placeholder-shown {
   font-style: italic;
+  width: 145px;
 }
 footer input:-ms-input-placeholder {
   font-style: italic;
+  width: 145px;
 }
 footer input:placeholder-shown {
   font-style: italic;
+  width: 145px;
+}
+footer input:not(:-moz-placeholder-shown) {
+  width: 80%;
+}
+footer input:not(:-ms-input-placeholder) {
+  width: 80%;
+}
+footer input:not(:placeholder-shown) {
+  width: 80%;
 }
 footer input:focus {
   outline: none;
 }
+footer input:focus::-moz-placeholder {
+  color: transparent;
+}
+footer input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+footer input:focus::placeholder {
+  color: transparent;
+}
 
 /*  
-   ==========
-
-   ==========
-*//*# sourceMappingURL=style.css.map */
+   ============
+     Messages
+   ============
+*/
+li {
+  width: 100vw;
+  min-height: 40px;
+  padding: 8.5px 9px 8.5px 8px;
+  font-size: 14px;
+  line-height: 23px;
+  display: flex;
+  margin-bottom: 4px;
+}
+li.cameInOrOut {
+  background-color: rgb(220, 220, 220);
+}
+li.reserved {
+  background-color: rgb(255, 222, 222);
+}
+li.normal {
+  background-color: rgb(255, 255, 255);
+}
+li p {
+  height: 23px;
+}/*# sourceMappingURL=style.css.map */

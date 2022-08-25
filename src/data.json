@@ -1,0 +1,8 @@
+{
+     "loginPage": "UnderConstruction",
+     "mainPage": "<header class=\"dsp-flex\">\n<ion-icon name=\"people\"></ion-icon><ion-icon name=\"people\"></ion-icon>\n</header>\n<main>\n<ul class=\"serverMessages\"></ul>\n</main>\n<footer class=\"dsp-flex\">\n<input type=\"text\" placeholder=\"Escreva aqui...\" />\n<ion-icon id=\"sendButton\" name=\"paper-plane-outline\"></ion-icon>\n</footer>",
+     "message": "<li class=\"normal\">",
+     "status": "<li class=\"cameInOrOut\">",
+     "private_message": "< class=\"reserved\">",
+     "closeMessage": "</li>"
+}

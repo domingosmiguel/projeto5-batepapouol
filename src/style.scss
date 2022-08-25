@@ -21,16 +21,8 @@ $button-grey: rgb(231, 231, 231);
 $button-text-grey: rgb(105, 105, 105);
 $check-green: rgb(40, 187, 37);
 $width: 100vw;
+$height: 100vh;
 
-/* --title-green: rgb(117, 183, 158);
-     --border-green: rgb(153, 206, 168);
-     --card-green: rgb(167, 233, 175);
-     --black: rgba(0, 0, 0, 0.3);
-     --card-width: 117px;
-     --card-height: 146px;
-     --transition: all 0.5s;
-     --border-radius: 5px;
-     --spacing: 17px; */
 /*  
    =================
      Global Styles
@@ -54,6 +46,7 @@ body {
      background-color: $grey;
      font-family: $font;
      font-weight: 400;
+     height: $height;
 }
 header {
      background-color: $white;
@@ -71,29 +64,29 @@ header {
      }
 }
 main {
-     height: 200vh;
+     min-height: calc(100% - 186px);
 }
 footer {
      background-color: $white;
      width: $width;
      height: 80px;
-     padding: 0 18px;
+     padding-left: 18px;
      box-shadow: 0px -4px 6px 0px rgba(0, 0, 0, 0.05);
-     margin-top: 26px;
      position: sticky;
      bottom: 0;
 
      ion-icon {
           width: 32px;
-          height: 32px;
+          height: 100%;
+          margin: 0 18px;
      }
      ::-webkit-input-placeholder {
           color: $black;
      }
      input {
+          height: 30px;
           color: $black;
           border: none;
-          width: 200px;
           font-size: 18px;
           line-height: 21px;
           letter-spacing: 0em;
@@ -101,17 +94,44 @@ footer {
 
           &:placeholder-shown {
                font-style: italic;
-
-               // font-style: normal;
+               width: 145px;
+          }
+          &:not(:placeholder-shown) {
+               width: 80%;
           }
           &:focus {
                outline: none;
+          }
+          &:focus::placeholder {
+               color: transparent;
           }
      }
 }
 
 /*  
-   ==========
-     
-   ==========
+   ============
+     Messages
+   ============
 */
+li {
+     width: $width;
+     min-height: 40px;
+     padding: 8.5px 9px 8.5px 8px;
+     font-size: 14px;
+     line-height: 23px;
+     display: flex;
+     margin-bottom: 4px;
+
+     &.cameInOrOut {
+          background-color: $dark-grey;
+     }
+     &.reserved {
+          background-color: $pink;
+     }
+     &.normal {
+          background-color: $white;
+     }
+     p {
+          height: 23px;
+     }
+}
