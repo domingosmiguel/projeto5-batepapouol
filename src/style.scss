@@ -49,6 +49,71 @@ body {
      display: grid;
 }
 /*  
+   ==============
+     login Page
+   ==============
+*/
+main.loginPage {
+     // display: flex;
+     // flex-direction: column;
+     // align-items: center;
+     background-color: $white;
+
+     img {
+          width: 130px;
+          position: absolute;
+          top: calc($height * 0.14);
+          left: calc(($width - 130px) / 2);
+     }
+     ::-webkit-input-placeholder {
+          color: $time-grey;
+     }
+     input {
+          width: 261px;
+          height: 54px;
+          color: $time-grey;
+          // margin-top: calc($height * 0.14);
+          font-size: 18px;
+          line-height: 25px;
+          text-align: center;
+          color: $time-grey;
+          border: 1px solid $dark-grey;
+          border-radius: 4px;
+          position: absolute;
+          top: calc($height * 0.427);
+          left: calc(($width - 261px) / 2);
+
+          &:focus {
+               outline: none;
+          }
+          &:focus::placeholder {
+               color: transparent;
+          }
+     }
+     button {
+          width: 109px;
+          height: 45px;
+          border: none;
+          border-radius: 9px;
+          margin-top: 15px;
+          font-size: 18px;
+          line-height: 25px;
+          background-color: $button-grey;
+          color: $button-text-grey;
+          position: absolute;
+          top: calc(($height * 0.427) + 69px);
+          left: calc(($width - 109px) / 2);
+          transition: box-shadow 0.1s;
+
+          &:hover {
+               cursor: pointer;
+          }
+          &:active {
+               box-shadow: rgba(0, 0, 0, 0.24) 0px -3px 8px inset;
+          }
+     }
+}
+/*  
    ===============
      Chat layout
    ===============
@@ -175,14 +240,15 @@ div.sideMenuContainer {
           div.title {
                color: $black;
                font-weight: 700;
-               height: 84px;
+               height: 80px;
                font-size: 16px;
                line-height: 19px;
                justify-content: center;
                text-align: center;
+               margin: 4px 0;
 
                &:nth-of-type(2) {
-                    height: 57px;
+                    height: 53px;
                     padding-top: 9px;
                }
           }
@@ -192,7 +258,7 @@ div.sideMenuContainer {
                font-size: 16px;
                line-height: 40px;
                padding: 0;
-               margin: 0;
+               margin: 1px 0;
                display: flex;
                justify-content: space-between;
 

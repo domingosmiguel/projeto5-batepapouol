@@ -13,7 +13,7 @@ const newMessage = (messagesContainer, message) => {
      document.querySelector("main").scrollTo(0, document.querySelector("main").scrollHeight);
 };
 const serverDidNotReceiveMessage = () => {
-     console.log("servidor não recebeu msg");
+     console.log("server did not receive message");
 };
 const generateNewUserMessage = (userMessageText) => {
      const userMessage = { from: user.name };
@@ -90,7 +90,7 @@ const connectionError = () => {
 };
 const ids = {};
 const loginSuccess = () => {
-     // document.querySelector("body").innerHTML = pagesData.mainPage;
+     document.querySelector("body").innerHTML = pagesData.mainPage;
      eventListenersSetup();
      getMessagesFromServer();
      ids.connection = setInterval(() => {
@@ -101,10 +101,20 @@ const loginSuccess = () => {
           getMessagesFromServer();
      }, 3000);
 };
-const loginError = () => {
-     document.location.reload();
+const loginError = (error) => {
+     console.log(error.message);
+     // document.location.reload();
 };
-const user = { name: "Miguel" };
-const loginCompleted = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", user);
-loginCompleted.then(loginSuccess);
-loginCompleted.catch(loginError);
+const user = {};
+
+document.querySelector("#loginButton").addEventListener("click", () => {
+     if (document.querySelector("#userName").value) {
+          user.name = document.querySelector("#userName").value;
+          const loginCompleted = axios.post(
+               "https://mock-api.driven.com.br/api/v6/uol/participants",
+               user
+          );
+          loginCompleted.then(loginSuccess);
+          loginCompleted.catch(loginError);
+     }
+});

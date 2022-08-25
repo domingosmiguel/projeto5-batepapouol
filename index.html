@@ -9,7 +9,13 @@
           <link rel="stylesheet" href="./src/mediaQuery.css" />
      </head>
      <body>
-          <div class="messagesContainer">
+          <main class="loginPage">
+               <img src="./public/batepapouollogo.jpg" alt="logo" />
+               <input type="text" id="userName" placeholder="Digite seu nome" />
+               <button id="loginButton">Entrar</button>
+               <p id="errorMessage"></p>
+          </main>
+          <!-- <div class="messagesContainer">
                <header class="mainPage dsp-flex">
                     <ion-icon name="people"></ion-icon>
                     <ion-icon id="sideMenuButton" name="people"></ion-icon>
@@ -41,7 +47,7 @@
                          <li><p><ion-icon name="lock-closed"></ion-icon>&#160&#160Reservado</p><ion-icon name="checkmark-outline"></ion-icon></li>
                     </ul>
                </div>
-          </div>
+          </div> -->
           <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
           <script
                type="module"

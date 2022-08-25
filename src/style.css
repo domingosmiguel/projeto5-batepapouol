@@ -38,6 +38,71 @@ body {
 }
 
 /*  
+   ==============
+     login Page
+   ==============
+*/
+main.loginPage {
+  background-color: rgb(255, 255, 255);
+}
+main.loginPage img {
+  width: 130px;
+  position: absolute;
+  top: 14vh;
+  left: calc((100vw - 130px) / 2);
+}
+main.loginPage ::-webkit-input-placeholder {
+  color: rgb(170, 170, 170);
+}
+main.loginPage input {
+  width: 261px;
+  height: 54px;
+  color: rgb(170, 170, 170);
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: rgb(170, 170, 170);
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 4px;
+  position: absolute;
+  top: 42.7vh;
+  left: calc((100vw - 261px) / 2);
+}
+main.loginPage input:focus {
+  outline: none;
+}
+main.loginPage input:focus::-moz-placeholder {
+  color: transparent;
+}
+main.loginPage input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+main.loginPage input:focus::placeholder {
+  color: transparent;
+}
+main.loginPage button {
+  width: 109px;
+  height: 45px;
+  border: none;
+  border-radius: 9px;
+  margin-top: 15px;
+  font-size: 18px;
+  line-height: 25px;
+  background-color: rgb(231, 231, 231);
+  color: rgb(105, 105, 105);
+  position: absolute;
+  top: calc(42.7vh + 69px);
+  left: calc((100vw - 109px) / 2);
+  transition: box-shadow 0.1s;
+}
+main.loginPage button:hover {
+  cursor: pointer;
+}
+main.loginPage button:active {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px -3px 8px inset;
+}
+
+/*  
    ===============
      Chat layout
    ===============
@@ -181,14 +246,15 @@ div.sideMenuContainer div.sideMenu {
 div.sideMenuContainer div.sideMenu div.title {
   color: rgb(0, 0, 0);
   font-weight: 700;
-  height: 84px;
+  height: 80px;
   font-size: 16px;
   line-height: 19px;
   justify-content: center;
   text-align: center;
+  margin: 4px 0;
 }
 div.sideMenuContainer div.sideMenu div.title:nth-of-type(2) {
-  height: 57px;
+  height: 53px;
   padding-top: 9px;
 }
 div.sideMenuContainer div.sideMenu li {
@@ -197,7 +263,7 @@ div.sideMenuContainer div.sideMenu li {
   font-size: 16px;
   line-height: 40px;
   padding: 0;
-  margin: 0;
+  margin: 1px 0;
   display: flex;
   justify-content: space-between;
 }
