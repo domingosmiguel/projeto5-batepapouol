@@ -10,6 +10,7 @@ const newMessage = (messagesContainer, message) => {
                                         <p style="font-weight: 700;">${message.to}:</p>
                                         &#160${message.text}
                                    </li> `;
+     document.querySelector("main").scrollTo(0, document.querySelector("main").scrollHeight);
 };
 const serverDidNotReceiveMessage = () => {
      console.log("servidor não recebeu msg");
@@ -50,37 +51,55 @@ const eventListenersSetup = () => {
                });
           }
      );
+     console.log(document.querySelectorAll("ul.messagesModes li"));
 };
-const loadMessagesFromServer = (messagesFromServer) => {
+const localeStoredServerMessages = [];
+const storeServerMessages = (serverPromise) => {
      const messagesContainer = document.querySelector("ul.serverMessages");
-     messagesContainer.innerHTML = "";
-     messagesFromServer.data.forEach((serverMessage) => {
-          newMessage(messagesContainer, serverMessage);
-     });
-     document.querySelector("main").scrollTo(0, document.querySelector("main").scrollHeight);
+     const serverMessages = serverPromise.data;
+     if (localeStoredServerMessages.length === 0) {
+          serverMessages.forEach((serverMessage) => {
+               newMessage(messagesContainer, serverMessage);
+               localeStoredServerMessages.push(serverMessage);
+          });
+     } else if (
+          localeStoredServerMessages[localeStoredServerMessages.length - 1].time !==
+          serverMessages[serverMessages.length - 1].time
+     ) {
+          localeStoredServerMessages.splice(0, 1);
+          localeStoredServerMessages.push(serverMessages[serverMessages.length - 1]);
+          newMessage(
+               messagesContainer,
+               localeStoredServerMessages[localeStoredServerMessages.length - 1]
+          );
+     }
 };
-const didNotLoadMessagesFromServer = () => {
-     console.log("não carregou mensagens do servidor");
+const didNotLoadServerMessages = () => {
+     console.log("Did not load server messages");
 };
 const getMessagesFromServer = () => {
-     const messagesFromServer = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
-     messagesFromServer.then(loadMessagesFromServer);
-     messagesFromServer.catch(didNotLoadMessagesFromServer);
+     const promiseFromServer = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
+     promiseFromServer.then(storeServerMessages);
+     promiseFromServer.catch(didNotLoadServerMessages);
 };
-const connectionError = (error) => {
-     console.log("deu ruim");
-     clearInterval(id);
+const connectionError = () => {
+     console.log("Connection lost");
+     Object.values(ids).forEach((id) => {
+          clearInterval(id);
+     });
 };
-let id = null;
+const ids = {};
 const loginSuccess = () => {
+     // document.querySelector("body").innerHTML = pagesData.mainPage;
      eventListenersSetup();
      getMessagesFromServer();
-     id = setInterval(() => {
+     ids.connection = setInterval(() => {
           const connection = axios.post("https://mock-api.driven.com.br/api/v6/uol/status", user);
-          // Review the need to update all messages every 5s, there are better ways (requirement is 3s)
-          connection.then(getMessagesFromServer);
           connection.catch(connectionError);
      }, 5000);
+     ids.loadMessages = setInterval(() => {
+          getMessagesFromServer();
+     }, 3000);
 };
 const loginError = () => {
      document.location.reload();

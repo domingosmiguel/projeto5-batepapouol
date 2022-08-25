@@ -1,8 +1,8 @@
 {
      "loginPage": "UnderConstruction",
-     "mainPage": "<header class=\"dsp-flex\">\n<ion-icon name=\"people\"></ion-icon><ion-icon name=\"people\"></ion-icon>\n</header>\n<main>\n<ul class=\"serverMessages\"></ul>\n</main>\n<footer class=\"dsp-flex\">\n<input type=\"text\" placeholder=\"Escreva aqui...\" />\n<ion-icon id=\"sendButton\" name=\"paper-plane-outline\"></ion-icon>\n</footer>",
-     "status": "<li class=\"status\">",
-     "message": "<li class=\"message\">",
-     "private_message": "<li class=\"private_message\">",
+     "mainPage": "<div class=\"messagesContainer\"><header class=\"mainPage dsp-flex\"><ion-icon name=\"people\"></ion-icon><ion-icon id=\"sideMenuButton\" name=\"people\"></ion-icon></header><main><ul class=\"serverMessages\"></ul></main><footer class=\"dsp-flex\"><input type=\"text\" placeholder=\"Escreva aqui...\" /><ion-icon id=\"sendButton\"name=\"paper-plane-outline\"></ion-icon></footer></div><div class=\"sideMenuContainer\"><div class=\"blackOpaque\"></div><div class=\"sideMenu\"><div class=\"title dsp-flex\">Escolha um contato <br />para enviar mensagem:</div><ul class=\"users\"></ul><div class=\"title dsp-flex\">Escolha a visibilidade:</div><ul class=\"messageModes\"><li><ion-icon name=\"lock-open\"></ion-icon>&#160&#160Público</li><li><ion-icon name=\"lock-closed\"></ion-icon>&#160&#160Reservado</li></ul></div></div>",
+     "status": "<li class=\"msg status\">",
+     "message": "<li class=\"msg message\">",
+     "private_message": "<li class=\"msg private_message\">",
      "closeMessage": "</li>"
 }
