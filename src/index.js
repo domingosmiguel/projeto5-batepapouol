@@ -1,25 +1,20 @@
 import pagesData from "./data.json" assert { type: "json" };
 
-const newMessage = (message) => {
-     const chatBox = document.querySelector("ul.serverMessages");
-     chatBox.innerHTML += `${pagesData[message.type]} 
-                              <p style="color: rgb(170,170,170);">
-                              (${message.time})&#160 
-                              </p>
-                              <p style="font-weight: 700;">${message.from}</p>
-                              &#160for&#160
-                              <p style="font-weight: 700;">${message.to}:</p>
-                              &#160${message.text}
-                         </li> `;
-};
-const serverReceivedMessage = () => {
-     getMessagesFromServer();
+const newMessage = (messagesContainer, message) => {
+     messagesContainer.innerHTML += `${pagesData[message.type]} 
+                                        <p style="color: rgb(170,170,170);">
+                                             (${message.time})&#160 
+                                        </p>
+                                        <p style="font-weight: 700;">${message.from}</p>
+                                        &#160para&#160
+                                        <p style="font-weight: 700;">${message.to}:</p>
+                                        &#160${message.text}
+                                   </li> `;
 };
 const serverDidNotReceiveMessage = () => {
      console.log("servidor não recebeu msg");
 };
 const generateNewUserMessage = (userMessageText) => {
-     const time = new Date();
      const userMessage = { from: user.name };
      userMessage.to = "Todos";
      userMessage.text = userMessageText;
@@ -28,7 +23,7 @@ const generateNewUserMessage = (userMessageText) => {
           "https://mock-api.driven.com.br/api/v6/uol/messages",
           userMessage
      );
-     sendMessageToServer.then(serverReceivedMessage);
+     sendMessageToServer.then(getMessagesFromServer);
      sendMessageToServer.catch(serverDidNotReceiveMessage);
 };
 const clickFilter = (clickedButton) => {
@@ -48,12 +43,21 @@ const eventListenersSetup = () => {
                clickFilter(e.key);
           }
      });
+     [document.querySelector("#sideMenuButton"), document.querySelector(".blackOpaque")].forEach(
+          (item) => {
+               item.addEventListener("click", () => {
+                    document.querySelector("div.sideMenuContainer").classList.toggle("clicked");
+               });
+          }
+     );
 };
 const loadMessagesFromServer = (messagesFromServer) => {
+     const messagesContainer = document.querySelector("ul.serverMessages");
+     messagesContainer.innerHTML = "";
      messagesFromServer.data.forEach((serverMessage) => {
-          newMessage(serverMessage);
+          newMessage(messagesContainer, serverMessage);
      });
-     window.scrollTo(0, document.body.scrollHeight);
+     document.querySelector("main").scrollTo(0, document.querySelector("main").scrollHeight);
 };
 const didNotLoadMessagesFromServer = () => {
      console.log("não carregou mensagens do servidor");
@@ -64,28 +68,21 @@ const getMessagesFromServer = () => {
      messagesFromServer.catch(didNotLoadMessagesFromServer);
 };
 const connectionError = (error) => {
-     console.log("Mensagem de erro: " + error.response.data); // Ex: Not Found
-     console.log("Status code: " + error.response.status); // Ex: 404
      console.log("deu ruim");
-     // document.location.reload();
+     clearInterval(id);
 };
-// const connectionOK = () => {
-//      console.log("ok");
-// };
+let id = null;
 const loginSuccess = () => {
-     document.querySelector("body").innerHTML = pagesData.mainPage;
      eventListenersSetup();
      getMessagesFromServer();
-     setInterval(() => {
+     id = setInterval(() => {
           const connection = axios.post("https://mock-api.driven.com.br/api/v6/uol/status", user);
-          // connection.then(connectionOK);
+          // Review the need to update all messages every 5s, there are better ways (requirement is 3s)
           connection.then(getMessagesFromServer);
           connection.catch(connectionError);
      }, 5000);
 };
-const loginError = (error) => {
-     // console.log("Mensagem de erro: " + error.response.data); // Ex: Not Found
-     // console.log("Status code: " + error.response.status); // Ex: 404
+const loginError = () => {
      document.location.reload();
 };
 const user = { name: "Miguel" };

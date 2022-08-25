@@ -21,6 +21,7 @@ $button-grey: rgb(231, 231, 231);
 $button-text-grey: rgb(105, 105, 105);
 $check-green: rgb(40, 187, 37);
 $width: 100vw;
+$sideMenuWidth: 259px;
 $height: 100vh;
 
 /*  
@@ -28,6 +29,9 @@ $height: 100vh;
      Global Styles
    =================
 */
+::-webkit-scrollbar {
+     display: none;
+}
 * {
      box-sizing: border-box;
 }
@@ -36,78 +40,82 @@ $height: 100vh;
      justify-content: space-between;
      align-items: center;
 }
+body {
+     width: $width;
+     height: $height;
+     background-color: $grey;
+     font-family: $font;
+     font-weight: 400;
+     display: grid;
+}
 /*  
    ===============
      Chat layout
    ===============
 */
+div.messagesContainer {
+     grid-column: 1;
+     grid-row: 1;
 
-body {
-     background-color: $grey;
-     font-family: $font;
-     font-weight: 400;
-     height: $height;
-}
-header {
-     background-color: $white;
-     width: $width;
-     height: 80px;
-     padding: 0 22px;
-     box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.05);
-     margin-bottom: 26px;
-     position: sticky;
-     top: 0;
+     header.mainPage {
+          background-color: $white;
+          width: $width;
+          height: 80px;
+          padding: 0 22px;
+          box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.05);
 
-     ion-icon {
-          width: 45px;
-          height: 45px;
-     }
-}
-main {
-     min-height: calc(100% - 186px);
-}
-footer {
-     background-color: $white;
-     width: $width;
-     height: 80px;
-     padding-left: 18px;
-     box-shadow: 0px -4px 6px 0px rgba(0, 0, 0, 0.05);
-     position: sticky;
-     bottom: 0;
-
-     ion-icon {
-          width: 32px;
-          height: 100%;
-          margin: 0 18px;
-     }
-     ::-webkit-input-placeholder {
-          color: $black;
-     }
-     input {
-          height: 30px;
-          color: $black;
-          border: none;
-          font-size: 18px;
-          line-height: 21px;
-          letter-spacing: 0em;
-          text-align: left;
-
-          &:placeholder-shown {
-               font-style: italic;
-               width: 145px;
+          ion-icon {
+               width: 45px;
+               height: 45px;
           }
-          &:not(:placeholder-shown) {
-               width: 80%;
+     }
+     main {
+          height: calc($height - 166px);
+          overflow: scroll;
+     }
+     ul {
+          padding-top: 26px;
+     }
+     footer {
+          background-color: $white;
+          width: $width;
+          height: 80px;
+          padding-left: 18px;
+          box-shadow: 0px -4px 6px 0px rgba(0, 0, 0, 0.05);
+
+          ion-icon {
+               width: 32px;
+               height: 100%;
+               margin: 0 18px;
           }
-          &:focus {
-               outline: none;
+          ::-webkit-input-placeholder {
+               color: $black;
           }
-          &:focus::placeholder {
-               color: transparent;
+          input {
+               height: 30px;
+               color: $black;
+               border: none;
+               font-size: 18px;
+               line-height: 21px;
+               letter-spacing: 0em;
+               text-align: left;
+
+               &:placeholder-shown {
+                    font-style: italic;
+                    width: 145px;
+               }
+               &:not(:placeholder-shown) {
+                    width: 80%;
+               }
+               &:focus {
+                    outline: none;
+               }
+               &:focus::placeholder {
+                    color: transparent;
+               }
           }
      }
 }
-
 /*  
    ============
      Messages
@@ -122,16 +130,75 @@ li {
      display: flex;
      margin-bottom: 4px;
 
-     &.cameInOrOut {
+     &.status {
           background-color: $dark-grey;
      }
-     &.reserved {
-          background-color: $pink;
-     }
-     &.normal {
+     &.message {
           background-color: $white;
+     }
+     &.private_message {
+          background-color: $pink;
      }
      p {
           height: 23px;
+     }
+}
+/*  
+   =============
+     Side Menu
+   =============
+*/
+div.sideMenuContainer {
+     visibility: hidden;
+     grid-column: 1;
+     grid-row: 1;
+     width: $width;
+     height: $height;
+     z-index: 1;
+     display: flex;
+
+     &.clicked {
+          visibility: visible;
+     }
+     div.blackOpaque {
+          width: calc($width - $sideMenuWidth);
+          height: $height;
+          background-color: $black;
+          opacity: 0.6;
+     }
+     div.sideMenu {
+          height: $height;
+          background-color: $white;
+          width: $sideMenuWidth;
+          padding: 0 20px;
+
+          div.title {
+               color: $black;
+               font-weight: 700;
+               height: 84px;
+               font-size: 16px;
+               line-height: 19px;
+               justify-content: center;
+               text-align: center;
+
+               &:nth-of-type(2) {
+                    height: 57px;
+                    padding-top: 9px;
+               }
+          }
+          li {
+               width: 100%;
+               height: 36px;
+               display: flex;
+               font-size: 16px;
+               line-height: 40px;
+               padding: 0;
+               margin: 0;
+
+               ion-icon {
+                    width: 22px;
+                    height: 40px;
+               }
+          }
      }
 }

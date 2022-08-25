@@ -9,6 +9,36 @@
           <link rel="stylesheet" href="./src/mediaQuery.css" />
      </head>
      <body>
+          <div class="messagesContainer">
+               <header class="mainPage dsp-flex">
+                    <ion-icon name="people"></ion-icon>
+                    <ion-icon id="sideMenuButton" name="people"></ion-icon>
+               </header>
+               <main>
+                    <ul class="serverMessages"></ul>
+               </main>
+               <footer class="dsp-flex">
+                    <input type="text" placeholder="Escreva aqui..." /><ion-icon
+                         id="sendButton"
+                         name="paper-plane-outline"
+                    ></ion-icon>
+               </footer>
+          </div>
+          <div class="sideMenuContainer">
+               <div class="blackOpaque"></div>
+               <div class="sideMenu">
+                    <div class="title dsp-flex">
+                         Escolha um contato <br />
+                         para enviar mensagem:
+                    </div>
+                    <ul class="users"></ul>
+                    <div class="title dsp-flex">Escolha a visibilidade:</div>
+                    <ul class="messageModes">
+                         <li><ion-icon name="lock-open"></ion-icon>&#160&#160Público</li>
+                         <li><ion-icon name="lock-closed"></ion-icon>&#160&#160Reservado</li>
+                    </ul>
+               </div>
+          </div>
           <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
           <script
                type="module"
