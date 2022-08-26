@@ -37,6 +37,17 @@ body {
   display: grid;
 }
 
+p#errorMessage {
+  width: 261px;
+  text-align: center;
+  color: red;
+  font-size: 20px;
+  font-weight: 700;
+  position: absolute;
+  top: 75vh;
+  left: calc((100vw - 261px) / 2);
+}
+
 /*  
    ==============
      login Page
@@ -117,6 +128,10 @@ div.messagesContainer header.mainPage {
   height: 80px;
   padding: 0 22px;
   box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.05);
+}
+div.messagesContainer header.mainPage img {
+  margin-top: 2px;
+  width: 75px;
 }
 div.messagesContainer header.mainPage ion-icon {
   width: 45px;
@@ -253,7 +268,7 @@ div.sideMenuContainer div.sideMenu div.title {
   text-align: center;
   margin: 4px 0;
 }
-div.sideMenuContainer div.sideMenu div.title:nth-of-type(2) {
+div.sideMenuContainer div.sideMenu div.title:last-of-type {
   height: 53px;
   padding-top: 9px;
 }
@@ -268,28 +283,42 @@ div.sideMenuContainer div.sideMenu li {
   justify-content: space-between;
 }
 div.sideMenuContainer div.sideMenu li p {
+  max-width: 205px;
+  height: 36px;
   display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
 }
 div.sideMenuContainer div.sideMenu li ion-icon {
   width: 22px;
   height: 40px;
 }
 div.sideMenuContainer div.sideMenu li > ion-icon {
+  display: none;
   color: rgb(40, 187, 37);
   width: 14px;
   stroke-width: 2;
 }
-div.sideMenuContainer div.sideMenu li > ion-icon.check {
-  visibility: visible;
+div.sideMenuContainer div.sideMenu li.check > ion-icon {
+  display: block;
 }
-div.sideMenuContainer div.sideMenu ul.users li ion-icon {
+div.sideMenuContainer div.sideMenu div.usersContainer {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: calc(100vh - 233px);
+}
+div.sideMenuContainer div.sideMenu div.usersContainer ul.users {
+  margin: 1px 0;
+}
+div.sideMenuContainer div.sideMenu div.usersContainer ul.users li ion-icon {
   width: 25px;
 }
-div.sideMenuContainer div.sideMenu ul.users li > ion-icon {
+div.sideMenuContainer div.sideMenu div.usersContainer ul.users li > ion-icon {
+  display: none;
   color: rgb(40, 187, 37);
   width: 14px;
   stroke-width: 2;
 }
-div.sideMenuContainer div.sideMenu ul.users li > ion-icon.check {
-  visibility: visible;
+div.sideMenuContainer div.sideMenu div.usersContainer ul.users li.check > ion-icon {
+  display: block;
 }/*# sourceMappingURL=style.css.map */

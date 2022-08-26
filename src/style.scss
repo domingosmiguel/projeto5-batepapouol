@@ -48,6 +48,16 @@ body {
      font-weight: 400;
      display: grid;
 }
+p#errorMessage {
+     width: 261px;
+     text-align: center;
+     color: red;
+     font-size: 20px;
+     font-weight: 700;
+     position: absolute;
+     top: calc($height * 0.75);
+     left: calc(($width - 261px) / 2);
+}
 /*  
    ==============
      login Page
@@ -129,6 +139,10 @@ div.messagesContainer {
           padding: 0 22px;
           box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.05);
 
+          img {
+               margin-top: 2px;
+               width: 75px;
+          }
           ion-icon {
                width: 45px;
                height: 45px;
@@ -247,7 +261,7 @@ div.sideMenuContainer {
                text-align: center;
                margin: 4px 0;
 
-               &:nth-of-type(2) {
+               &:last-of-type {
                     height: 53px;
                     padding-top: 9px;
                }
@@ -263,38 +277,48 @@ div.sideMenuContainer {
                justify-content: space-between;
 
                p {
+                    max-width: 205px;
+                    height: 36px;
                     display: flex;
+                    flex-wrap: nowrap;
+                    overflow: hidden;
                }
                ion-icon {
                     width: 22px;
                     height: 40px;
                }
                & > ion-icon {
-                    // visibility: hidden;
+                    display: none;
                     color: $check-green;
-                    // border: 3px solid $check-green;
                     width: 14px;
                     stroke-width: 2;
-
-                    &.check {
-                         visibility: visible;
+               }
+               &.check {
+                    & > ion-icon {
+                         display: block;
                     }
                }
           }
-          ul.users {
-               li {
-                    ion-icon {
-                         width: 25px;
-                    }
-                    & > ion-icon {
-                         // visibility: hidden;
-                         color: $check-green;
-                         // border: 3px solid $check-green;
-                         width: 14px;
-                         stroke-width: 2;
-
+          div.usersContainer {
+               overflow-y: scroll;
+               overflow-x: hidden;
+               max-height: calc($height - 233px);
+               ul.users {
+                    margin: 1px 0;
+                    li {
+                         ion-icon {
+                              width: 25px;
+                         }
+                         & > ion-icon {
+                              display: none;
+                              color: $check-green;
+                              width: 14px;
+                              stroke-width: 2;
+                         }
                          &.check {
-                              visibility: visible;
+                              & > ion-icon {
+                                   display: block;
+                              }
                          }
                     }
                }
