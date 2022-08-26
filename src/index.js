@@ -9,7 +9,10 @@ const newMessage = (messagesContainer, message) => {
                                              <p style="font-weight: 700;">${message.from}</p>
                                              &#160${message.text}
                                         </li> `;
-     } else if (message.type === "private_message") {
+     } else if (
+          message.type === "private_message" &&
+          (message.to === (user.name || "Todos") || message.from === user.name)
+     ) {
           messagesContainer.innerHTML += `${pagesData[message.type]} 
                                              <p style="color: rgb(170,170,170);">
                                                   (${message.time})&#160 
@@ -87,42 +90,37 @@ const eventListenersSetup = () => {
           });
      });
 };
-const localeStoredServerMessages = [];
+let LastRenderedMessage = false;
 
 const storeServerMessages = (serverPromise) => {
      const messagesContainer = document.querySelector("ul.serverMessages");
      const serverMessages = serverPromise.data;
-     if (localeStoredServerMessages.length === 0) {
+     if (!LastRenderedMessage) {
           serverMessages.forEach((serverMessage) => {
                newMessage(messagesContainer, serverMessage);
-               localeStoredServerMessages.push(serverMessage);
           });
-     } else if (
-          localeStoredServerMessages[localeStoredServerMessages.length - 1].from !==
-               serverMessages[serverMessages.length - 1].from ||
-          localeStoredServerMessages[localeStoredServerMessages.length - 1].to !==
-               serverMessages[serverMessages.length - 1].to ||
-          localeStoredServerMessages[localeStoredServerMessages.length - 1].text !==
-               serverMessages[serverMessages.length - 1].text ||
-          localeStoredServerMessages[localeStoredServerMessages.length - 1].type !==
-               serverMessages[serverMessages.length - 1].type ||
-          localeStoredServerMessages[localeStoredServerMessages.length - 1].time !==
-               serverMessages[serverMessages.length - 1].time
-     ) {
-          localeStoredServerMessages.splice(0, 1);
-          localeStoredServerMessages.push(serverMessages[serverMessages.length - 1]);
-          newMessage(
-               messagesContainer,
-               localeStoredServerMessages[localeStoredServerMessages.length - 1]
-          );
-          if (serverMessages[serverMessages.length - 1].type === "status") {
-               switch (serverMessages[serverMessages.length - 1].text) {
-                    case "entra na sala...":
-                         newUserOnline(serverMessages[serverMessages.length - 1].from);
-                         break;
-                    case "sai da sala...":
-                         newUserOffline(serverMessages[serverMessages.length - 1].from);
-                         break;
+          LastRenderedMessage = serverMessages[serverMessages.length - 1];
+     } else {
+          for (let i = serverMessages.length - 1; i > 0; i--) {
+               if (
+                    serverMessages[i].time === LastRenderedMessage.time &&
+                    i !== serverMessages.length - 1
+               ) {
+                    for (i++; i < serverMessages.length; i++) {
+                         newMessage(messagesContainer, serverMessages[i]);
+                         if (serverMessages[i].type === "status") {
+                              switch (serverMessages[i].text) {
+                                   case "entra na sala...":
+                                        newUserOnline(serverMessages[i].from);
+                                        break;
+                                   case "sai da sala...":
+                                        newUserOffline(serverMessages[i].from);
+                                        break;
+                              }
+                         }
+                    }
+                    LastRenderedMessage = serverMessages[i];
+                    break;
                }
           }
      }
@@ -209,13 +207,9 @@ const loginSuccess = () => {
      ids.loadMessages = setInterval(() => {
           getMessagesFromServer();
      }, 3000);
-     // ids.loadUsers = setInterval(() => {
-     //      getUsersOnline();
-     // }, 10000);
 };
 const loginError = (error) => {
      document.querySelector("#errorMessage").innerHTML = error.message;
-     // document.location.reload();
 };
 const user = {};
 
