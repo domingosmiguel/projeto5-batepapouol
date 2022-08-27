@@ -156,50 +156,60 @@ div.messagesContainer footer ion-icon {
   height: 100%;
   margin: 0 18px;
 }
-div.messagesContainer footer ::-webkit-input-placeholder {
+div.messagesContainer footer > div {
+  padding: 15px 0 1px 0;
+}
+div.messagesContainer footer > div ::-webkit-input-placeholder {
   color: rgb(0, 0, 0);
 }
-div.messagesContainer footer input {
+div.messagesContainer footer > div input {
   height: 30px;
   color: rgb(0, 0, 0);
   border: none;
   font-size: 18px;
-  line-height: 21px;
+  line-height: 25px;
   letter-spacing: 0em;
   text-align: left;
 }
-div.messagesContainer footer input:-moz-placeholder-shown {
+div.messagesContainer footer > div input:-moz-placeholder-shown {
   font-style: italic;
-  width: 145px;
+  width: calc((100vw - 86px) * 0.8);
 }
-div.messagesContainer footer input:-ms-input-placeholder {
+div.messagesContainer footer > div input:-ms-input-placeholder {
   font-style: italic;
-  width: 145px;
+  width: calc((100vw - 86px) * 0.8);
 }
-div.messagesContainer footer input:placeholder-shown {
+div.messagesContainer footer > div input:placeholder-shown {
   font-style: italic;
-  width: 145px;
+  width: calc((100vw - 86px) * 0.8);
 }
-div.messagesContainer footer input:not(:-moz-placeholder-shown) {
-  width: 80%;
+div.messagesContainer footer > div input:not(:-moz-placeholder-shown) {
+  width: calc(100vw - 86px);
 }
-div.messagesContainer footer input:not(:-ms-input-placeholder) {
-  width: 80%;
+div.messagesContainer footer > div input:not(:-ms-input-placeholder) {
+  width: calc(100vw - 86px);
 }
-div.messagesContainer footer input:not(:placeholder-shown) {
-  width: 80%;
+div.messagesContainer footer > div input:not(:placeholder-shown) {
+  width: calc(100vw - 86px);
 }
-div.messagesContainer footer input:focus {
+div.messagesContainer footer > div input:focus {
   outline: none;
 }
-div.messagesContainer footer input:focus::-moz-placeholder {
+div.messagesContainer footer > div input:focus::-moz-placeholder {
   color: transparent;
 }
-div.messagesContainer footer input:focus:-ms-input-placeholder {
+div.messagesContainer footer > div input:focus:-ms-input-placeholder {
   color: transparent;
 }
-div.messagesContainer footer input:focus::placeholder {
+div.messagesContainer footer > div input:focus::placeholder {
   color: transparent;
+}
+div.messagesContainer footer > div > div.msg-infos {
+  color: rgb(80, 80, 80);
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 25px;
+  width: calc(100vw - 86px);
 }
 
 /*  
@@ -282,22 +292,29 @@ div.sideMenuContainer div.sideMenu li {
   display: flex;
   justify-content: space-between;
 }
-div.sideMenuContainer div.sideMenu li p {
+div.sideMenuContainer div.sideMenu li div {
   max-width: 205px;
-  height: 36px;
   display: flex;
   flex-wrap: nowrap;
   overflow: hidden;
 }
-div.sideMenuContainer div.sideMenu li ion-icon {
+div.sideMenuContainer div.sideMenu li div ion-icon {
   width: 22px;
   height: 40px;
+  margin-right: 7px;
+}
+div.sideMenuContainer div.sideMenu li div div {
+  overflow: hidden;
+  max-width: 100%;
+}
+div.sideMenuContainer div.sideMenu li div div div.userName {
+  height: 36px;
 }
 div.sideMenuContainer div.sideMenu li > ion-icon {
   display: none;
   color: rgb(40, 187, 37);
   width: 14px;
-  stroke-width: 2;
+  margin: auto 0;
 }
 div.sideMenuContainer div.sideMenu li.check > ion-icon {
   display: block;
@@ -309,16 +326,4 @@ div.sideMenuContainer div.sideMenu div.usersContainer {
 }
 div.sideMenuContainer div.sideMenu div.usersContainer ul.users {
   margin: 1px 0;
-}
-div.sideMenuContainer div.sideMenu div.usersContainer ul.users li ion-icon {
-  width: 25px;
-}
-div.sideMenuContainer div.sideMenu div.usersContainer ul.users li > ion-icon {
-  display: none;
-  color: rgb(40, 187, 37);
-  width: 14px;
-  stroke-width: 2;
-}
-div.sideMenuContainer div.sideMenu div.usersContainer ul.users li.check > ion-icon {
-  display: block;
 }/*# sourceMappingURL=style.css.map */

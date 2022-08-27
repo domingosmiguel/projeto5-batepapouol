@@ -11,18 +11,18 @@ const newMessage = (messagesContainer, message) => {
                                         </li> `;
      } else if (
           message.type === "private_message" &&
-          (message.to === (user.name || "Todos") || message.from === user.name)
+          (message.to === (userMessage.name || "Todos") || message.from === userMessage.name)
      ) {
           messagesContainer.innerHTML += `${pagesData[message.type]} 
                                              <p style="color: rgb(170,170,170);">
                                                   (${message.time})&#160 
                                              </p>
                                              <p style="font-weight: 700;">${message.from}</p>
-                                             &#160reservadamente para&#160
+                                             &#160reservadamente&#160para&#160
                                              <p style="font-weight: 700;">${message.to}:</p>
                                              &#160${message.text}
                                         </li> `;
-     } else {
+     } else if (message.type === "message") {
           messagesContainer.innerHTML += `${pagesData[message.type]} 
                                              <p style="color: rgb(170,170,170);">
                                                   (${message.time})&#160 
@@ -38,11 +38,8 @@ const newMessage = (messagesContainer, message) => {
 const serverDidNotReceiveMessage = () => {
      console.log("server did not receive message");
 };
-const generateNewUserMessage = (userMessageText) => {
-     const userMessage = { from: user.name };
-     userMessage.to = "Todos";
+const sendNewUserMessage = (userMessageText) => {
      userMessage.text = userMessageText;
-     userMessage.type = "message";
      const sendMessageToServer = axios.post(
           "https://mock-api.driven.com.br/api/v6/uol/messages",
           userMessage
@@ -50,17 +47,21 @@ const generateNewUserMessage = (userMessageText) => {
      sendMessageToServer.then(getMessagesFromServer);
      sendMessageToServer.catch(serverDidNotReceiveMessage);
 };
-const messageDetailsSelector = (target, targetParent) => {
-     const otherChildren = targetParent.querySelectorAll("li");
-     otherChildren.forEach((child) => {
+const messageSettingsSelector = (target, targetParent) => {
+     const allChildren = targetParent.querySelectorAll("li");
+     allChildren.forEach((child) => {
           child.classList.remove("check");
      });
      target.classList.add("check");
+     messagePrivacyAndDestination(
+          target.querySelector("div").querySelector("div").querySelector("div").innerHTML,
+          targetParent
+     );
 };
 const messageFilter = (clickedButton) => {
-     const inputHTML = document.querySelector("footer > input");
+     const inputHTML = document.querySelector("footer > div > input");
      if (inputHTML.value && clickedButton === "Enter") {
-          generateNewUserMessage(inputHTML.value);
+          sendNewUserMessage(inputHTML.value);
      }
      inputHTML.blur();
      inputHTML.value = "";
@@ -81,18 +82,50 @@ const eventListenersSetup = () => {
                });
           }
      );
-     document.querySelectorAll("ul.messagesModes li").forEach((item) => {
+     document.querySelectorAll("ul.messageModes li").forEach((item) => {
           item.addEventListener("click", (event) => {
-               messageDetailsSelector(
+               messageSettingsSelector(
                     event.path.find((target) => target.tagName === "LI"),
                     event.path.find((target) => target.tagName === "LI").parentNode
                );
           });
      });
 };
+const messagePrivacyAndDestination = (info, type) => {
+     let messagePrivacy = false;
+     switch (type.classList.value) {
+          case "messageModes":
+               messagePrivacy = info;
+               userMessage.to = document
+                    .querySelector("ul.users > li.check")
+                    .querySelector("div.userName").innerHTML;
+               break;
+          case "users":
+               messagePrivacy = document
+                    .querySelector("ul.messageModes > li.check")
+                    .querySelector("div.msgPrivacy").innerHTML;
+               userMessage.to = info;
+               break;
+     }
+     switch (messagePrivacy) {
+          case "Público":
+               document.querySelector(
+                    "div.msg-infos"
+               ).innerHTML = `Enviando para ${userMessage.to}`;
+               userMessage.type = "message";
+               break;
+          case "Reservadamente":
+               document.querySelector(
+                    "div.msg-infos"
+               ).innerHTML = `Enviando para ${userMessage.to} (Reservadamente)`;
+               userMessage.type = "private_message";
+               break;
+     }
+     console.log(userMessage);
+};
 let LastRenderedMessage = false;
 
-const storeServerMessages = (serverPromise) => {
+const renderServerMessages = (serverPromise) => {
      const messagesContainer = document.querySelector("ul.serverMessages");
      const serverMessages = serverPromise.data;
      if (!LastRenderedMessage) {
@@ -100,12 +133,10 @@ const storeServerMessages = (serverPromise) => {
                newMessage(messagesContainer, serverMessage);
           });
           LastRenderedMessage = serverMessages[serverMessages.length - 1];
-     } else {
-          for (let i = serverMessages.length - 1; i > 0; i--) {
-               if (
-                    serverMessages[i].time === LastRenderedMessage.time &&
-                    i !== serverMessages.length - 1
-               ) {
+     } else if (serverMessages[serverMessages.length - 1].time !== LastRenderedMessage.time) {
+          LastRenderedMessage = serverMessages[serverMessages.length - 1];
+          for (let i = serverMessages.length - 2; i > 0; i--) {
+               if (serverMessages[i].time !== LastRenderedMessage.time) {
                     for (i++; i < serverMessages.length; i++) {
                          newMessage(messagesContainer, serverMessages[i]);
                          if (serverMessages[i].type === "status") {
@@ -119,7 +150,6 @@ const storeServerMessages = (serverPromise) => {
                               }
                          }
                     }
-                    LastRenderedMessage = serverMessages[i];
                     break;
                }
           }
@@ -130,13 +160,13 @@ const didNotLoadServerMessages = () => {
 };
 const getMessagesFromServer = () => {
      const promiseFromServer = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
-     promiseFromServer.then(storeServerMessages);
+     promiseFromServer.then(renderServerMessages);
      promiseFromServer.catch(didNotLoadServerMessages);
 };
 const eventListenersForUsersCards = () => {
      document.querySelectorAll("ul.users li").forEach((item) => {
           item.addEventListener("click", (event) => {
-               messageDetailsSelector(
+               messageSettingsSelector(
                     event.path.find((target) => target.tagName === "LI"),
                     event.path.find((target) => target.tagName === "LI").parentNode
                );
@@ -145,10 +175,11 @@ const eventListenersForUsersCards = () => {
 };
 const newUserOnline = (userName) => {
      const usersContainer = document.querySelector("ul.users");
-     usersContainer.innerHTML += `<li>
-                                        <p>
-                                             <ion-icon name="person-circle"></ion-icon>&#160&#160${userName}
-                                        </p>
+     usersContainer.innerHTML += `<li data-identifier="participant">
+                                        <div>
+                                             <ion-icon name="person-circle"></ion-icon>
+                                             <div><div class="userName">${userName}</div></div>
+                                        </div>
                                         <ion-icon name="checkmark-outline"></ion-icon>
                                    </li>`;
      eventListenersForUsersCards();
@@ -156,15 +187,14 @@ const newUserOnline = (userName) => {
 const newUserOffline = (userName) => {
      const usersCards = document.querySelectorAll("ul.users > li:not(:first-child)");
      Object.values(usersCards).some((card) => {
-          const userFromCard = Object.values(card.childNodes).find(
-               (tag) => tag.tagName === "P"
-          ).textContent;
-          const formattedUserFromCard = userFromCard.slice(
-               userFromCard.indexOf(userName),
-               userFromCard.indexOf(userName) + userName.length
-          );
-          if (userName == formattedUserFromCard) {
+          const userFromCard = card.querySelector("div.userName").innerHTML;
+          if (userName == userFromCard) {
                card.remove();
+               if (card.classList.value === "check") {
+                    const targetParent = document.querySelector("ul.users");
+                    const target = targetParent.querySelector("li:first-child");
+                    messageSettingsSelector(target, targetParent);
+               }
                return true;
           }
           return false;
@@ -201,7 +231,10 @@ const loginSuccess = () => {
      getMessagesFromServer();
      getUsersOnline();
      ids.connection = setInterval(() => {
-          const connection = axios.post("https://mock-api.driven.com.br/api/v6/uol/status", user);
+          const connection = axios.post(
+               "https://mock-api.driven.com.br/api/v6/uol/status",
+               userMessage
+          );
           connection.catch(connectionError);
      }, 5000);
      ids.loadMessages = setInterval(() => {
@@ -211,15 +244,17 @@ const loginSuccess = () => {
 const loginError = (error) => {
      document.querySelector("#errorMessage").innerHTML = error.message;
 };
-const user = {};
+const userMessage = {};
 
 const loginLogic = () => {
      document.querySelector("#loginButton").addEventListener("click", () => {
           if (document.querySelector("#userName").value) {
-               user.name = document.querySelector("#userName").value;
+               userMessage.name = userMessage.from = document.querySelector("#userName").value;
+               userMessage.to = "Todos";
+               userMessage.type = "message";
                const loginRequest = axios.post(
                     "https://mock-api.driven.com.br/api/v6/uol/participants",
-                    user
+                    userMessage
                );
                loginRequest.then(loginSuccess);
                loginRequest.catch(loginError);
