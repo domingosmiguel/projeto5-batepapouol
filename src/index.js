@@ -1,5 +1,11 @@
 import pagesData from "./data.json" assert { type: "json" };
 
+const userMessage = {};
+const ids = {};
+
+let LastRenderedMessages = false;
+let localListOfOnlineUsers = false;
+
 const newMessage = (messagesContainer, message) => {
      let localTime = message.time.slice(0, 2) - 3;
      if (localTime <= 0) {
@@ -128,26 +134,57 @@ const messagePrivacyAndDestination = (info, type) => {
                break;
      }
 };
-let LastRenderedMessage = false;
-
 const renderServerMessages = (serverPromise) => {
      const messagesContainer = document.querySelector("ul.serverMessages");
      const serverMessages = serverPromise.data;
-     if (!LastRenderedMessage) {
+     if (!LastRenderedMessages) {
           serverMessages.forEach((serverMessage) => {
                newMessage(messagesContainer, serverMessage);
           });
-     } else if (serverMessages[serverMessages.length - 1].time !== LastRenderedMessage.time) {
-          for (let i = serverMessages.length - 2; i > 0; i--) {
-               if (serverMessages[i].time === LastRenderedMessage.time) {
-                    for (i++; i < serverMessages.length; i++) {
-                         newMessage(messagesContainer, serverMessages[i]);
+     } else {
+          for (let i = serverMessages.length - 1; i >= 0; i--) {
+               if (serverMessages[i].time === LastRenderedMessages[0].time) {
+                    for (; i >= 0; ) {
+                         i--;
+                         if (serverMessages[i].time !== LastRenderedMessages[0].time) {
+                              i++;
+                              for (; i < serverMessages.length; i++) {
+                                   let alreadyRendered = false;
+                                   for (let j = 0; j < LastRenderedMessages.length; j++) {
+                                        if (
+                                             LastRenderedMessages[j].text ===
+                                                  serverMessages[i].text &&
+                                             LastRenderedMessages[j].time ===
+                                                  serverMessages[i].time &&
+                                             LastRenderedMessages[j].from ===
+                                                  serverMessages[i].from &&
+                                             LastRenderedMessages[j].to === serverMessages[i].to &&
+                                             LastRenderedMessages[j].type === serverMessages[i].type
+                                        ) {
+                                             alreadyRendered = true;
+                                             break;
+                                        }
+                                   }
+                                   if (!alreadyRendered) {
+                                        newMessage(messagesContainer, serverMessages[i]);
+                                   }
+                              }
+                              break;
+                         }
                     }
                     break;
                }
           }
      }
-     LastRenderedMessage = serverMessages[serverMessages.length - 1];
+     LastRenderedMessages = [];
+     serverMessages.reverse();
+     serverMessages.every((serverMessage) => {
+          if (serverMessage.time !== serverMessages[0].time) {
+               return false;
+          }
+          LastRenderedMessages.push(serverMessage);
+          return true;
+     });
 };
 const getMessagesFromServer = () => {
      const promiseFromServer = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
@@ -198,8 +235,6 @@ const newOfflineUser = (userName) => {
           return false;
      });
 };
-let localListOfOnlineUsers = false;
-
 const renderOnlineUsers = (serverPromise) => {
      const serverUsers = serverPromise.data;
      if (!localListOfOnlineUsers) {
@@ -242,15 +277,13 @@ const connectionError = (error) => {
           clearInterval(id);
      });
      localListOfOnlineUsers = false;
-     LastRenderedMessage = false;
+     LastRenderedMessages = false;
      loginPageLogic(error.config.url);
 };
 const keepConnection = () => {
      const connection = axios.post("https://mock-api.driven.com.br/api/v6/uol/status", userMessage);
      connection.catch(connectionError);
 };
-const ids = {};
-
 const loginSuccess = () => {
      document.querySelector("body").innerHTML = pagesData.mainPage;
      document.querySelector("div.msg-infos").innerHTML = `Enviando para Todos`;
@@ -270,6 +303,8 @@ const loginSuccess = () => {
      }, 10000);
 };
 const loginError = () => {
+     errorMessage;
+     document.querySelector("#errorMessage").classList.remove("hidden");
      document.querySelector("#loginButton").classList.remove("hidden");
      document.querySelector("#userName").classList.remove("hidden");
      document.querySelector(".loader").classList.add("hidden");
@@ -277,13 +312,12 @@ const loginError = () => {
           "#errorMessage"
      ).innerHTML = `Por favor, insira outro nome de usuário pois este já está em uso`;
 };
-const userMessage = {};
-
 const loginLogic = (clickedButton) => {
      if (
           document.querySelector("#userName").value &&
           (clickedButton === "Enter" || clickedButton === "clicked")
      ) {
+          document.querySelector("#errorMessage").classList.add("hidden");
           document.querySelector("#loginButton").classList.add("hidden");
           document.querySelector("#userName").classList.add("hidden");
           document.querySelector(".loader").classList.remove("hidden");
