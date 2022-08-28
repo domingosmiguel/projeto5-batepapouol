@@ -22,7 +22,6 @@ $button-text-grey: rgb(105, 105, 105);
 $check-green: rgb(40, 187, 37);
 $width: 100vw;
 $sideMenuWidth: 259px;
-$height: 100vh;
 
 /*  
    =================
@@ -43,7 +42,6 @@ $height: 100vh;
 }
 body {
      width: $width;
-     height: $height;
      background-color: $grey;
      font-family: $font;
      font-weight: 400;
@@ -56,7 +54,6 @@ p#errorMessage {
      font-size: 20px;
      font-weight: 700;
      position: absolute;
-     top: calc($height * 0.75);
      left: calc(($width - 261px) / 2);
 }
 /*  
@@ -70,7 +67,6 @@ main.loginPage {
      img {
           width: 130px;
           position: absolute;
-          top: calc($height * 0.14);
           left: calc(($width - 130px) / 2);
      }
      ::-webkit-input-placeholder {
@@ -87,7 +83,6 @@ main.loginPage {
           border: 1px solid $dark-grey;
           border-radius: 4px;
           position: absolute;
-          top: calc($height * 0.427);
           left: calc(($width - 261px) / 2);
           &:hover {
                cursor: pointer;
@@ -113,7 +108,6 @@ main.loginPage {
           background-color: $button-grey;
           color: $button-text-grey;
           position: absolute;
-          top: calc(($height * 0.427) + 69px);
           left: calc(($width - 109px) / 2);
           transition: box-shadow 0.1s;
 
@@ -138,7 +132,6 @@ main.loginPage {
      .loader {
           color: #000000;
           font-size: 20px;
-          margin: 50vh auto;
           width: 1em;
           height: 1em;
           border-radius: 50%;
@@ -254,7 +247,6 @@ div.messagesContainer {
           }
      }
      main {
-          height: calc($height - 166px);
           overflow-y: scroll;
           overflow-x: hidden;
      }
@@ -362,7 +354,6 @@ div.sideMenuContainer {
      grid-column: 1;
      grid-row: 1;
      width: $width;
-     height: $height;
      z-index: 1;
      display: flex;
 
@@ -371,12 +362,10 @@ div.sideMenuContainer {
      }
      div.blackOpaque {
           width: calc($width - $sideMenuWidth);
-          height: $height;
           background-color: $black;
           opacity: 0.6;
      }
      div.sideMenu {
-          height: $height;
           background-color: $white;
           width: $sideMenuWidth;
           padding: 0 20px;
@@ -449,7 +438,6 @@ div.sideMenuContainer {
           div.usersContainer {
                overflow-y: scroll;
                overflow-x: hidden;
-               max-height: calc($height - 233px);
                ul.users {
                     margin: 1px 0;
                }

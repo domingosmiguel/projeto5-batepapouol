@@ -1,0 +1,44 @@
+body {
+     height: 100vh;
+     height: calc(var(--vh, 1vh) * 100);
+}
+p#errorMessage {
+     top: 75vh;
+     top: calc(var(--vh, 1vh) * 75);
+}
+main.loginPage img {
+     top: 14vh;
+     top: calc(var(--vh, 1vh) * 14);
+}
+input#userName {
+     top: 42.7vh;
+     top: calc(var(--vh, 1vh) * 42.7);
+}
+main.loginPage button#loginButton {
+     top: calc(42.7vh + 69px);
+     top: calc((var(--vh, 1vh) * 42.7) + 69px);
+}
+main.loginPage .loader {
+     margin: calc((100vh - 1em) * 0.5) auto;
+     margin: calc((var(--vh, 1vh) - 1em) * 50) auto;
+}
+div.messagesContainer main {
+     height: calc(100vh - 166px);
+     height: calc((var(--vh, 1vh) * 100) - 166px);
+}
+div.sideMenuContainer {
+     height: 100vh;
+     height: calc(var(--vh, 1vh) * 100);
+}
+div.sideMenuContainer div.blackOpaque {
+     height: 100vh;
+     height: calc(var(--vh, 1vh) * 100);
+}
+div.sideMenuContainer div.sideMenu {
+     height: 100vh;
+     height: calc(var(--vh, 1vh) * 100);
+}
+div.sideMenuContainer div.sideMenu div.usersContainer {
+     max-height: 100vh - 233px;
+     max-height: calc((var(--vh, 1vh) * 100) - 233px);
+}
