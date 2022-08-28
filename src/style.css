@@ -37,16 +37,6 @@ body {
   display: grid;
 }
 
-p#errorMessage {
-  width: 261px;
-  text-align: center;
-  color: red;
-  font-size: 20px;
-  font-weight: 700;
-  position: absolute;
-  left: calc((100vw - 261px) / 2);
-}
-
 /*  
    ==============
      login Page
@@ -192,6 +182,18 @@ main.loginPage .loader.hidden {
   87.5% {
     box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
   }
+}
+main.loginPage p#errorMessage {
+  width: 261px;
+  text-align: center;
+  color: red;
+  font-size: 20px;
+  font-weight: 700;
+  position: absolute;
+  left: calc((100vw - 261px) / 2);
+}
+main.loginPage p#errorMessage.hidden {
+  display: none;
 }
 
 /*  

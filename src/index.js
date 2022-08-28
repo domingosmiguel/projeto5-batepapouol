@@ -302,12 +302,14 @@ const loginSuccess = () => {
           getOnlineUsers();
      }, 10000);
 };
+const loginPageHideAndShow = () => {
+     document.querySelector("#errorMessage").classList.toggle("hidden");
+     document.querySelector("#loginButton").classList.toggle("hidden");
+     document.querySelector("#userName").classList.toggle("hidden");
+     document.querySelector(".loader").classList.toggle("hidden");
+};
 const loginError = () => {
-     errorMessage;
-     document.querySelector("#errorMessage").classList.remove("hidden");
-     document.querySelector("#loginButton").classList.remove("hidden");
-     document.querySelector("#userName").classList.remove("hidden");
-     document.querySelector(".loader").classList.add("hidden");
+     loginPageHideAndShow();
      document.querySelector(
           "#errorMessage"
      ).innerHTML = `Por favor, insira outro nome de usuário pois este já está em uso`;
@@ -317,10 +319,7 @@ const loginLogic = (clickedButton) => {
           document.querySelector("#userName").value &&
           (clickedButton === "Enter" || clickedButton === "clicked")
      ) {
-          document.querySelector("#errorMessage").classList.add("hidden");
-          document.querySelector("#loginButton").classList.add("hidden");
-          document.querySelector("#userName").classList.add("hidden");
-          document.querySelector(".loader").classList.remove("hidden");
+          loginPageHideAndShow();
           userMessage.from = userMessage.name = document.querySelector("#userName").value;
           const loginRequest = axios.post(
                "https://mock-api.driven.com.br/api/v6/uol/participants",
@@ -347,13 +346,15 @@ const loginPageLogic = (errorConfigURL) => {
      loginPageListeners();
      switch (errorConfigURL) {
           case "https://mock-api.driven.com.br/api/v6/uol/status":
-               document.querySelector("#errorMessage").innerHTML = "Lost server connection";
+               document.querySelector("#errorMessage").innerHTML = "Conexão com o servidor perdida";
                break;
           case "https://mock-api.driven.com.br/api/v6/uol/messages":
-               document.querySelector("#errorMessage").innerHTML = "Couldn't load new messages";
+               document.querySelector("#errorMessage").innerHTML =
+                    "Não foi possível carregar novas mensagens";
                break;
           case "https://mock-api.driven.com.br/api/v6/uol/participants":
-               document.querySelector("#errorMessage").innerHTML = "Couldn't load online users";
+               document.querySelector("#errorMessage").innerHTML =
+                    "Não foi possível carregar usuários online";
                break;
      }
 };
