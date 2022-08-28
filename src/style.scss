@@ -255,7 +255,8 @@ div.messagesContainer {
      }
      main {
           height: calc($height - 166px);
-          overflow: scroll;
+          overflow-y: scroll;
+          overflow-x: hidden;
      }
      ul {
           padding-top: 26px;
@@ -324,11 +325,8 @@ div.messagesContainer {
 */
 li.msg {
      width: $width;
-     min-height: fit-content;
+     min-height: 40px;
      padding: 8.5px 9px 8.5px 8px;
-     font-size: 14px;
-     line-height: 23px;
-     display: flex;
      margin-bottom: 4px;
 
      &.status {
@@ -342,7 +340,16 @@ li.msg {
      }
      p {
           display: inline;
-          height: 23px;
+          font-size: 14px;
+          line-height: 23px;
+     }
+     b {
+          font-weight: 700;
+
+          &.time {
+               color: $time-grey;
+               font-weight: 400;
+          }
      }
 }
 /*  
@@ -430,7 +437,7 @@ div.sideMenuContainer {
                     display: none;
                     color: $check-green;
                     width: 14px;
-                    // stroke-width: 2;
+                    --ionicon-stroke-width: 96px;
                     margin: auto 0;
                }
                &.check {

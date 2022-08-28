@@ -229,7 +229,8 @@ div.messagesContainer header.mainPage ion-icon:hover {
 }
 div.messagesContainer main {
   height: calc(100vh - 166px);
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 div.messagesContainer ul {
   padding-top: 26px;
@@ -315,13 +316,8 @@ div.messagesContainer footer > div > div.msg-infos {
 */
 li.msg {
   width: 100vw;
-  min-height: -webkit-fit-content;
-  min-height: -moz-fit-content;
-  min-height: fit-content;
+  min-height: 40px;
   padding: 8.5px 9px 8.5px 8px;
-  font-size: 14px;
-  line-height: 23px;
-  display: flex;
   margin-bottom: 4px;
 }
 li.msg.status {
@@ -335,7 +331,15 @@ li.msg.private_message {
 }
 li.msg p {
   display: inline;
-  height: 23px;
+  font-size: 14px;
+  line-height: 23px;
+}
+li.msg b {
+  font-weight: 700;
+}
+li.msg b.time {
+  color: rgb(170, 170, 170);
+  font-weight: 400;
 }
 
 /*  
@@ -420,6 +424,7 @@ div.sideMenuContainer div.sideMenu li > ion-icon {
   display: none;
   color: rgb(40, 187, 37);
   width: 14px;
+  --ionicon-stroke-width: 96px;
   margin: auto 0;
 }
 div.sideMenuContainer div.sideMenu li.check > ion-icon {

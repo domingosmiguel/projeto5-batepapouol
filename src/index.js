@@ -1,14 +1,20 @@
 import pagesData from "./data.json" assert { type: "json" };
 
 const newMessage = (messagesContainer, message) => {
+     let localTime = message.time.slice(0, 2) - 3;
+     if (localTime <= 0) {
+          localTime += 12;
+     }
+     localTime = (localTime + 100).toString().slice(-2) + message.time.slice(-6);
+
      if (message.type === "status") {
           messagesContainer.innerHTML += `${pagesData[message.type]} 
-                                             <p style="color: rgb(170,170,170);">
-                                                  (${message.time})
-                                             </p>
-                                             <p style="font-weight: 700;">${message.from}</p>
-                                             <p>${message.text}</p>
-                                        </li> `;
+                                             <b class="time">
+                                                  (${localTime})&nbsp
+                                             </b>
+                                             <b>${message.from}&nbsp</b>
+                                             ${message.text}
+                                        </p></li>`;
      } else if (
           message.type === "private_message" &&
           (message.to === userMessage.name ||
@@ -16,24 +22,24 @@ const newMessage = (messagesContainer, message) => {
                message.from === userMessage.name)
      ) {
           messagesContainer.innerHTML += `${pagesData[message.type]} 
-                                             <p style="color: rgb(170,170,170);">
-                                                  (${message.time})
-                                             </p>
-                                             <p style="font-weight: 700;">${message.from}</p>
-                                             <p> reservadamente para </p>
-                                             <p style="font-weight: 700;">${message.to}:</p>
-                                             <p>${message.text}</p>
-                                        </li> `;
+                                             <b class="time">
+                                                  (${localTime})&nbsp
+                                             </b>
+                                             <b>${message.from}</b>
+                                             reservadamente para
+                                             <b>${message.to}:&nbsp</b>
+                                             ${message.text}
+                                        </p></li>`;
      } else if (message.type === "message") {
           messagesContainer.innerHTML += `${pagesData[message.type]} 
-                                             <p style="color: rgb(170,170,170);">
-                                                  (${message.time})
-                                             </p>
-                                             <p style="font-weight: 700;">${message.from}</p>
-                                             <p> para </p>
-                                             <p style="font-weight: 700;">${message.to}:</p>
-                                             <p> ${message.text}</p>
-                                        </li> `;
+                                             <b class="time">
+                                                  (${localTime})&nbsp
+                                             </b>
+                                             <b>${message.from}</b>
+                                             para
+                                             <b>${message.to}:&nbsp</b>
+                                             ${message.text}
+                                        </p></li>`;
      }
      document.querySelector("main").scrollTo(0, document.querySelector("main").scrollHeight);
 };
@@ -234,7 +240,6 @@ const getOnlineUsers = () => {
 const connectionError = (error) => {
      Object.values(ids).forEach((id) => {
           clearInterval(id);
-          console.log(id);
      });
      localListOfOnlineUsers = false;
      LastRenderedMessage = false;
