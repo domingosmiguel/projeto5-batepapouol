@@ -15,38 +15,38 @@
    =================
 */
 ::-webkit-scrollbar {
-  display: none;
+     display: none;
 }
 
 * {
-  cursor: default;
-  box-sizing: border-box;
+     cursor: default;
+     box-sizing: border-box;
 }
 
 .dsp-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgb(243, 243, 243);
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  display: grid;
+     width: 100vw;
+     /* height: 100vh; */
+     background-color: rgb(243, 243, 243);
+     font-family: "Roboto", sans-serif;
+     font-weight: 400;
+     display: grid;
 }
 
 p#errorMessage {
-  width: 261px;
-  text-align: center;
-  color: red;
-  font-size: 20px;
-  font-weight: 700;
-  position: absolute;
-  top: 75vh;
-  left: calc((100vw - 261px) / 2);
+     width: 261px;
+     text-align: center;
+     color: red;
+     font-size: 20px;
+     font-weight: 700;
+     position: absolute;
+     top: 75vh;
+     left: calc((100vw - 261px) / 2);
 }
 
 /*  
@@ -55,148 +55,166 @@ p#errorMessage {
    ==============
 */
 main.loginPage {
-  background-color: rgb(255, 255, 255);
+     background-color: rgb(255, 255, 255);
 }
 main.loginPage img {
-  width: 130px;
-  position: absolute;
-  top: 14vh;
-  left: calc((100vw - 130px) / 2);
+     width: 130px;
+     position: absolute;
+     top: 14vh;
+     left: calc((100vw - 130px) / 2);
 }
 main.loginPage ::-webkit-input-placeholder {
-  color: rgb(170, 170, 170);
+     color: rgb(170, 170, 170);
 }
 main.loginPage input#userName {
-  width: 261px;
-  height: 54px;
-  color: rgb(170, 170, 170);
-  font-size: 18px;
-  line-height: 25px;
-  text-align: center;
-  color: rgb(170, 170, 170);
-  border: 1px solid rgb(220, 220, 220);
-  border-radius: 4px;
-  position: absolute;
-  top: 42.7vh;
-  left: calc((100vw - 261px) / 2);
+     width: 261px;
+     height: 54px;
+     color: rgb(170, 170, 170);
+     font-size: 18px;
+     line-height: 25px;
+     text-align: center;
+     color: rgb(170, 170, 170);
+     border: 1px solid rgb(220, 220, 220);
+     border-radius: 4px;
+     position: absolute;
+     top: 42.7vh;
+     left: calc((100vw - 261px) / 2);
 }
 main.loginPage input#userName:hover {
-  cursor: pointer;
+     cursor: pointer;
 }
 main.loginPage input#userName:focus {
-  outline: none;
+     outline: none;
 }
 main.loginPage input#userName:focus::-moz-placeholder {
-  color: transparent;
+     color: transparent;
 }
 main.loginPage input#userName:focus:-ms-input-placeholder {
-  color: transparent;
+     color: transparent;
 }
 main.loginPage input#userName:focus::placeholder {
-  color: transparent;
+     color: transparent;
 }
 main.loginPage input#userName.hidden {
-  display: none;
+     display: none;
 }
 main.loginPage button#loginButton {
-  width: 109px;
-  height: 45px;
-  border: none;
-  border-radius: 9px;
-  margin-top: 15px;
-  font-size: 18px;
-  line-height: 25px;
-  background-color: rgb(231, 231, 231);
-  color: rgb(105, 105, 105);
-  position: absolute;
-  top: calc(42.7vh + 69px);
-  left: calc((100vw - 109px) / 2);
-  transition: box-shadow 0.1s;
+     width: 109px;
+     height: 45px;
+     border: none;
+     border-radius: 9px;
+     margin-top: 15px;
+     font-size: 18px;
+     line-height: 25px;
+     background-color: rgb(231, 231, 231);
+     color: rgb(105, 105, 105);
+     position: absolute;
+     top: calc(42.7vh + 69px);
+     left: calc((100vw - 109px) / 2);
+     transition: box-shadow 0.1s;
 }
 main.loginPage button#loginButton:hover {
-  cursor: pointer;
+     cursor: pointer;
 }
 main.loginPage button#loginButton:active {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px -3px 8px inset;
+     box-shadow: rgba(0, 0, 0, 0.24) 0px -3px 8px inset;
 }
 main.loginPage button#loginButton.hidden {
-  display: none;
+     display: none;
 }
 main.loginPage img:last-of-type.hidden {
-  visibility: none;
-  z-index: -2;
-  display: none;
-  color: transparent;
-  min-width: 0;
-  width: 0;
+     visibility: none;
+     z-index: -2;
+     display: none;
+     color: transparent;
+     min-width: 0;
+     width: 0;
 }
 main.loginPage .loader {
-  color: #000000;
-  font-size: 20px;
-  margin: 50vh auto;
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  position: relative;
-  text-indent: -9999em;
-  -webkit-animation: load4 1.3s infinite linear;
-  animation: load4 1.3s infinite linear;
-  transform: translateZ(0);
+     color: #000000;
+     font-size: 20px;
+     margin: 50vh auto;
+     width: 1em;
+     height: 1em;
+     border-radius: 50%;
+     position: relative;
+     text-indent: -9999em;
+     -webkit-animation: load4 1.3s infinite linear;
+     animation: load4 1.3s infinite linear;
+     transform: translateZ(0);
 }
 main.loginPage .loader.hidden {
-  display: none;
+     display: none;
 }
 @-webkit-keyframes load4 {
-  0%, 100% {
-    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
-  }
-  12.5% {
-    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
-  }
-  25% {
-    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
-  }
-  37.5% {
-    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
-  }
-  50% {
-    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
-  }
-  62.5% {
-    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
-  }
-  75% {
-    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
-  }
-  87.5% {
-    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
-  }
+     0%,
+     100% {
+          box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+               -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+     }
+     12.5% {
+          box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em,
+               -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+     }
+     25% {
+          box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em,
+               -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+     }
+     37.5% {
+          box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em,
+               -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+     }
+     50% {
+          box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em,
+               -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+     }
+     62.5% {
+          box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0,
+               -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+     }
+     75% {
+          box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+               -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+     }
+     87.5% {
+          box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+               -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+     }
 }
 @keyframes load4 {
-  0%, 100% {
-    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
-  }
-  12.5% {
-    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
-  }
-  25% {
-    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
-  }
-  37.5% {
-    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
-  }
-  50% {
-    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
-  }
-  62.5% {
-    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
-  }
-  75% {
-    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
-  }
-  87.5% {
-    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
-  }
+     0%,
+     100% {
+          box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+               -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+     }
+     12.5% {
+          box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em,
+               -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+     }
+     25% {
+          box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em,
+               -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+     }
+     37.5% {
+          box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em,
+               -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+     }
+     50% {
+          box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em,
+               -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+     }
+     62.5% {
+          box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0,
+               -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+     }
+     75% {
+          box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+               -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+     }
+     87.5% {
+          box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+               -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+     }
 }
 
 /*  
@@ -205,108 +223,108 @@ main.loginPage .loader.hidden {
    ===============
 */
 div.messagesContainer {
-  grid-column: 1;
-  grid-row: 1;
+     grid-column: 1;
+     grid-row: 1;
 }
 div.messagesContainer header.mainPage {
-  background-color: rgb(255, 255, 255);
-  width: 100vw;
-  height: 80px;
-  padding-left: 22px;
-  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.05);
+     background-color: rgb(255, 255, 255);
+     width: 100vw;
+     height: 80px;
+     padding-left: 22px;
+     box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.05);
 }
 div.messagesContainer header.mainPage img {
-  margin-top: 2px;
-  width: 75px;
+     margin-top: 2px;
+     width: 75px;
 }
 div.messagesContainer header.mainPage ion-icon {
-  width: 45px;
-  height: 45px;
-  padding: 17.5px 22px;
+     width: 45px;
+     height: 45px;
+     padding: 17.5px 22px;
 }
 div.messagesContainer header.mainPage ion-icon:hover {
-  cursor: pointer;
+     cursor: pointer;
 }
 div.messagesContainer main {
-  height: calc(100vh - 166px);
-  overflow-y: scroll;
-  overflow-x: hidden;
+     /* height: calc(100vh - 166px); */
+     overflow-y: scroll;
+     overflow-x: hidden;
 }
 div.messagesContainer ul {
-  padding-top: 26px;
+     padding-top: 26px;
 }
 div.messagesContainer footer {
-  background-color: rgb(255, 255, 255);
-  width: 100vw;
-  height: 80px;
-  padding-left: 18px;
-  box-shadow: 0px -4px 6px 0px rgba(0, 0, 0, 0.05);
+     background-color: rgb(255, 255, 255);
+     width: 100vw;
+     height: 80px;
+     padding-left: 18px;
+     box-shadow: 0px -4px 6px 0px rgba(0, 0, 0, 0.05);
 }
 div.messagesContainer footer ion-icon {
-  width: 32px;
-  height: 100%;
-  padding: 0 18px;
+     width: 32px;
+     height: 100%;
+     padding: 0 18px;
 }
 div.messagesContainer footer ion-icon:hover {
-  cursor: pointer;
+     cursor: pointer;
 }
 div.messagesContainer footer > div {
-  padding: 15px 0 1px 0;
+     padding: 15px 0 1px 0;
 }
 div.messagesContainer footer > div ::-webkit-input-placeholder {
-  color: rgb(0, 0, 0);
+     color: rgb(0, 0, 0);
 }
 div.messagesContainer footer > div input {
-  height: 30px;
-  color: rgb(0, 0, 0);
-  border: none;
-  font-size: 18px;
-  line-height: 25px;
-  letter-spacing: 0em;
-  text-align: left;
+     height: 30px;
+     color: rgb(0, 0, 0);
+     border: none;
+     font-size: 18px;
+     line-height: 25px;
+     letter-spacing: 0em;
+     text-align: left;
 }
 div.messagesContainer footer > div input:hover {
-  cursor: pointer;
+     cursor: pointer;
 }
 div.messagesContainer footer > div input:-moz-placeholder-shown {
-  font-style: italic;
-  width: calc((100vw - 86px) * 0.8);
+     font-style: italic;
+     width: calc((100vw - 86px) * 0.8);
 }
 div.messagesContainer footer > div input:-ms-input-placeholder {
-  font-style: italic;
-  width: calc((100vw - 86px) * 0.8);
+     font-style: italic;
+     width: calc((100vw - 86px) * 0.8);
 }
 div.messagesContainer footer > div input:placeholder-shown {
-  font-style: italic;
-  width: calc((100vw - 86px) * 0.8);
+     font-style: italic;
+     width: calc((100vw - 86px) * 0.8);
 }
 div.messagesContainer footer > div input:not(:-moz-placeholder-shown) {
-  width: calc(100vw - 86px);
+     width: calc(100vw - 86px);
 }
 div.messagesContainer footer > div input:not(:-ms-input-placeholder) {
-  width: calc(100vw - 86px);
+     width: calc(100vw - 86px);
 }
 div.messagesContainer footer > div input:not(:placeholder-shown) {
-  width: calc(100vw - 86px);
+     width: calc(100vw - 86px);
 }
 div.messagesContainer footer > div input:focus {
-  outline: none;
+     outline: none;
 }
 div.messagesContainer footer > div input:focus::-moz-placeholder {
-  color: transparent;
+     color: transparent;
 }
 div.messagesContainer footer > div input:focus:-ms-input-placeholder {
-  color: transparent;
+     color: transparent;
 }
 div.messagesContainer footer > div input:focus::placeholder {
-  color: transparent;
+     color: transparent;
 }
 div.messagesContainer footer > div > div.msg-infos {
-  color: rgb(80, 80, 80);
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 25px;
-  width: calc(100vw - 86px);
+     color: rgb(80, 80, 80);
+     font-weight: 300;
+     font-size: 14px;
+     line-height: 25px;
+     width: calc(100vw - 86px);
 }
 
 /*  
@@ -315,31 +333,31 @@ div.messagesContainer footer > div > div.msg-infos {
    ============
 */
 li.msg {
-  width: 100vw;
-  min-height: 40px;
-  padding: 8.5px 9px 8.5px 8px;
-  margin-bottom: 4px;
+     width: 100vw;
+     min-height: 40px;
+     padding: 8.5px 9px 8.5px 8px;
+     margin-bottom: 4px;
 }
 li.msg.status {
-  background-color: rgb(220, 220, 220);
+     background-color: rgb(220, 220, 220);
 }
 li.msg.message {
-  background-color: rgb(255, 255, 255);
+     background-color: rgb(255, 255, 255);
 }
 li.msg.private_message {
-  background-color: rgb(255, 222, 222);
+     background-color: rgb(255, 222, 222);
 }
 li.msg p {
-  display: inline;
-  font-size: 14px;
-  line-height: 23px;
+     display: inline;
+     font-size: 14px;
+     line-height: 23px;
 }
 li.msg b {
-  font-weight: 700;
+     font-weight: 700;
 }
 li.msg b.time {
-  color: rgb(170, 170, 170);
-  font-weight: 400;
+     color: rgb(170, 170, 170);
+     font-weight: 400;
 }
 
 /*  
@@ -348,93 +366,93 @@ li.msg b.time {
    =============
 */
 div.sideMenuContainer {
-  visibility: hidden;
-  grid-column: 1;
-  grid-row: 1;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1;
-  display: flex;
+     visibility: hidden;
+     grid-column: 1;
+     grid-row: 1;
+     width: 100vw;
+     /* height: 100vh; */
+     z-index: 1;
+     display: flex;
 }
 div.sideMenuContainer.clicked {
-  visibility: visible;
+     visibility: visible;
 }
 div.sideMenuContainer div.blackOpaque {
-  width: calc(100vw - 259px);
-  height: 100vh;
-  background-color: rgb(0, 0, 0);
-  opacity: 0.6;
+     width: calc(100vw - 259px);
+     /* height: 100vh; */
+     background-color: rgb(0, 0, 0);
+     opacity: 0.6;
 }
 div.sideMenuContainer div.sideMenu {
-  height: 100vh;
-  background-color: rgb(255, 255, 255);
-  width: 259px;
-  padding: 0 20px;
+     /* height: 100vh; */
+     background-color: rgb(255, 255, 255);
+     width: 259px;
+     padding: 0 20px;
 }
 div.sideMenuContainer div.sideMenu div.title {
-  color: rgb(0, 0, 0);
-  font-weight: 700;
-  height: 80px;
-  font-size: 16px;
-  line-height: 19px;
-  justify-content: center;
-  text-align: center;
-  margin: 4px 0;
+     color: rgb(0, 0, 0);
+     font-weight: 700;
+     height: 80px;
+     font-size: 16px;
+     line-height: 19px;
+     justify-content: center;
+     text-align: center;
+     margin: 4px 0;
 }
 div.sideMenuContainer div.sideMenu div.title:last-of-type {
-  height: 53px;
-  padding-top: 9px;
+     height: 53px;
+     padding-top: 9px;
 }
 div.sideMenuContainer div.sideMenu li {
-  width: 100%;
-  height: 36px;
-  font-size: 16px;
-  line-height: 40px;
-  padding: 0;
-  margin: 1px 0;
-  display: flex;
-  justify-content: space-between;
+     width: 100%;
+     height: 36px;
+     font-size: 16px;
+     line-height: 40px;
+     padding: 0;
+     margin: 1px 0;
+     display: flex;
+     justify-content: space-between;
 }
 div.sideMenuContainer div.sideMenu li:hover {
-  cursor: pointer;
+     cursor: pointer;
 }
 div.sideMenuContainer div.sideMenu li:hover div,
 div.sideMenuContainer div.sideMenu li ion-icon {
-  cursor: pointer;
+     cursor: pointer;
 }
 div.sideMenuContainer div.sideMenu li div {
-  max-width: 205px;
-  display: flex;
-  flex-wrap: nowrap;
-  overflow: hidden;
+     max-width: 205px;
+     display: flex;
+     flex-wrap: nowrap;
+     overflow: hidden;
 }
 div.sideMenuContainer div.sideMenu li div ion-icon {
-  width: 22px;
-  height: 40px;
-  margin-right: 7px;
+     width: 22px;
+     height: 40px;
+     margin-right: 7px;
 }
 div.sideMenuContainer div.sideMenu li div div {
-  overflow: hidden;
+     overflow: hidden;
 }
 div.sideMenuContainer div.sideMenu li div div div.userName {
-  max-width: 176px;
-  height: 36px;
+     max-width: 176px;
+     height: 36px;
 }
 div.sideMenuContainer div.sideMenu li > ion-icon {
-  display: none;
-  color: rgb(40, 187, 37);
-  width: 14px;
-  --ionicon-stroke-width: 96px;
-  margin: auto 0;
+     display: none;
+     color: rgb(40, 187, 37);
+     width: 14px;
+     --ionicon-stroke-width: 96px;
+     margin: auto 0;
 }
 div.sideMenuContainer div.sideMenu li.check > ion-icon {
-  display: block;
+     display: block;
 }
 div.sideMenuContainer div.sideMenu div.usersContainer {
-  overflow-y: scroll;
-  overflow-x: hidden;
-  max-height: calc(100vh - 233px);
+     overflow-y: scroll;
+     overflow-x: hidden;
+     /* max-height: calc(100vh - 233px); */
 }
 div.sideMenuContainer div.sideMenu div.usersContainer ul.users {
-  margin: 1px 0;
-}/*# sourceMappingURL=style.css.map */
+     margin: 1px 0;
+} /*# sourceMappingURL=style.css.map */

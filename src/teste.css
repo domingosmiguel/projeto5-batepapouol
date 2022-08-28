@@ -1,0 +1,18 @@
+body {
+     height: calc(var(--vh, 1vh) * 100);
+}
+div.messagesContainer main {
+     height: calc((var(--vh, 1vh) * 100) - 166px);
+}
+div.sideMenuContainer {
+     height: calc(var(--vh, 1vh) * 100);
+}
+div.sideMenuContainer div.blackOpaque {
+     height: calc(var(--vh, 1vh) * 100);
+}
+div.sideMenuContainer div.sideMenu {
+     height: calc(var(--vh, 1vh) * 100);
+}
+div.sideMenuContainer div.sideMenu div.usersContainer {
+     max-height: calc((var(--vh, 1vh) * 100) - 233px);
+}

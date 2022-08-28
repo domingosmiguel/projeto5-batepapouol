@@ -303,6 +303,10 @@ const loginPageListeners = () => {
      document.querySelector("main.loginPage").addEventListener("keypress", (e) => {
           loginLogic(e.key);
      });
+     window.addEventListener("resize", () => {
+          let vh = window.innerHeight * 0.01;
+          document.documentElement.style.setProperty("--vh", `${vh}px`);
+     });
 };
 const loginPageLogic = (errorConfigURL) => {
      document.querySelector("body").innerHTML = pagesData.loginPage;
