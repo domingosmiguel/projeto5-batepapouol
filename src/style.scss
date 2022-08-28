@@ -33,6 +33,7 @@ $height: 100vh;
      display: none;
 }
 * {
+     cursor: default;
      box-sizing: border-box;
 }
 .dsp-flex {
@@ -64,9 +65,6 @@ p#errorMessage {
    ==============
 */
 main.loginPage {
-     // display: flex;
-     // flex-direction: column;
-     // align-items: center;
      background-color: $white;
 
      img {
@@ -78,11 +76,10 @@ main.loginPage {
      ::-webkit-input-placeholder {
           color: $time-grey;
      }
-     input {
+     input#userName {
           width: 261px;
           height: 54px;
           color: $time-grey;
-          // margin-top: calc($height * 0.14);
           font-size: 18px;
           line-height: 25px;
           text-align: center;
@@ -92,15 +89,20 @@ main.loginPage {
           position: absolute;
           top: calc($height * 0.427);
           left: calc(($width - 261px) / 2);
-
+          &:hover {
+               cursor: pointer;
+          }
           &:focus {
                outline: none;
           }
           &:focus::placeholder {
                color: transparent;
           }
+          &.hidden {
+               display: none;
+          }
      }
-     button {
+     button#loginButton {
           width: 109px;
           height: 45px;
           border: none;
@@ -121,6 +123,105 @@ main.loginPage {
           &:active {
                box-shadow: rgba(0, 0, 0, 0.24) 0px -3px 8px inset;
           }
+          &.hidden {
+               display: none;
+          }
+     }
+     img:last-of-type.hidden {
+          visibility: none;
+          z-index: -2;
+          display: none;
+          color: transparent;
+          min-width: 0;
+          width: 0;
+     }
+     .loader {
+          color: #000000;
+          font-size: 20px;
+          margin: 50vh auto;
+          width: 1em;
+          height: 1em;
+          border-radius: 50%;
+          position: relative;
+          text-indent: -9999em;
+          -webkit-animation: load4 1.3s infinite linear;
+          animation: load4 1.3s infinite linear;
+          -webkit-transform: translateZ(0);
+          -ms-transform: translateZ(0);
+          transform: translateZ(0);
+          &.hidden {
+               display: none;
+          }
+     }
+     @-webkit-keyframes load4 {
+          0%,
+          100% {
+               box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em,
+                    0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+          }
+          12.5% {
+               box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em,
+                    -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+          }
+          25% {
+               box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em,
+                    -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+          }
+          37.5% {
+               box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em,
+                    -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+          }
+          50% {
+               box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em,
+                    0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+          }
+          62.5% {
+               box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0,
+                    -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+          }
+          75% {
+               box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em,
+                    0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+          }
+          87.5% {
+               box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+                    -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+          }
+     }
+     @keyframes load4 {
+          0%,
+          100% {
+               box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em,
+                    0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+          }
+          12.5% {
+               box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em,
+                    -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+          }
+          25% {
+               box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em,
+                    -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+          }
+          37.5% {
+               box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em,
+                    -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+          }
+          50% {
+               box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em,
+                    0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+          }
+          62.5% {
+               box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0,
+                    -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+          }
+          75% {
+               box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em,
+                    0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+          }
+          87.5% {
+               box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+                    -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+          }
      }
 }
 /*  
@@ -136,7 +237,7 @@ div.messagesContainer {
           background-color: $white;
           width: $width;
           height: 80px;
-          padding: 0 22px;
+          padding-left: 22px;
           box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.05);
 
           img {
@@ -146,6 +247,10 @@ div.messagesContainer {
           ion-icon {
                width: 45px;
                height: 45px;
+               padding: 17.5px 22px;
+               &:hover {
+                    cursor: pointer;
+               }
           }
      }
      main {
@@ -165,7 +270,10 @@ div.messagesContainer {
           ion-icon {
                width: 32px;
                height: 100%;
-               margin: 0 18px;
+               padding: 0 18px;
+               &:hover {
+                    cursor: pointer;
+               }
           }
           & > div {
                padding: 15px 0 1px 0;
@@ -182,6 +290,9 @@ div.messagesContainer {
                     letter-spacing: 0em;
                     text-align: left;
 
+                    &:hover {
+                         cursor: pointer;
+                    }
                     &:placeholder-shown {
                          font-style: italic;
                          width: calc(($width - 86px) * 0.8);
@@ -213,7 +324,7 @@ div.messagesContainer {
 */
 li.msg {
      width: $width;
-     min-height: 40px;
+     min-height: fit-content;
      padding: 8.5px 9px 8.5px 8px;
      font-size: 14px;
      line-height: 23px;
@@ -230,6 +341,7 @@ li.msg {
           background-color: $pink;
      }
      p {
+          display: inline;
           height: 23px;
      }
 }
@@ -287,6 +399,13 @@ div.sideMenuContainer {
                display: flex;
                justify-content: space-between;
 
+               &:hover {
+                    cursor: pointer;
+               }
+               &:hover div,
+               ion-icon {
+                    cursor: pointer;
+               }
                div {
                     max-width: 205px;
                     display: flex;
@@ -300,9 +419,9 @@ div.sideMenuContainer {
                     }
                     div {
                          overflow: hidden;
-                         max-width: 100%;
 
                          div.userName {
+                              max-width: 176px;
                               height: 36px;
                          }
                     }

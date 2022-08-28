@@ -19,6 +19,7 @@
 }
 
 * {
+  cursor: default;
   box-sizing: border-box;
 }
 
@@ -65,7 +66,7 @@ main.loginPage img {
 main.loginPage ::-webkit-input-placeholder {
   color: rgb(170, 170, 170);
 }
-main.loginPage input {
+main.loginPage input#userName {
   width: 261px;
   height: 54px;
   color: rgb(170, 170, 170);
@@ -79,19 +80,25 @@ main.loginPage input {
   top: 42.7vh;
   left: calc((100vw - 261px) / 2);
 }
-main.loginPage input:focus {
+main.loginPage input#userName:hover {
+  cursor: pointer;
+}
+main.loginPage input#userName:focus {
   outline: none;
 }
-main.loginPage input:focus::-moz-placeholder {
+main.loginPage input#userName:focus::-moz-placeholder {
   color: transparent;
 }
-main.loginPage input:focus:-ms-input-placeholder {
+main.loginPage input#userName:focus:-ms-input-placeholder {
   color: transparent;
 }
-main.loginPage input:focus::placeholder {
+main.loginPage input#userName:focus::placeholder {
   color: transparent;
 }
-main.loginPage button {
+main.loginPage input#userName.hidden {
+  display: none;
+}
+main.loginPage button#loginButton {
   width: 109px;
   height: 45px;
   border: none;
@@ -106,11 +113,90 @@ main.loginPage button {
   left: calc((100vw - 109px) / 2);
   transition: box-shadow 0.1s;
 }
-main.loginPage button:hover {
+main.loginPage button#loginButton:hover {
   cursor: pointer;
 }
-main.loginPage button:active {
+main.loginPage button#loginButton:active {
   box-shadow: rgba(0, 0, 0, 0.24) 0px -3px 8px inset;
+}
+main.loginPage button#loginButton.hidden {
+  display: none;
+}
+main.loginPage img:last-of-type.hidden {
+  visibility: none;
+  z-index: -2;
+  display: none;
+  color: transparent;
+  min-width: 0;
+  width: 0;
+}
+main.loginPage .loader {
+  color: #000000;
+  font-size: 20px;
+  margin: 50vh auto;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-animation: load4 1.3s infinite linear;
+  animation: load4 1.3s infinite linear;
+  transform: translateZ(0);
+}
+main.loginPage .loader.hidden {
+  display: none;
+}
+@-webkit-keyframes load4 {
+  0%, 100% {
+    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+  }
+  12.5% {
+    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  25% {
+    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  37.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  50% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  62.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+  }
+  75% {
+    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+  }
+}
+@keyframes load4 {
+  0%, 100% {
+    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+  }
+  12.5% {
+    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  25% {
+    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  37.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  50% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  62.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+  }
+  75% {
+    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+  }
 }
 
 /*  
@@ -126,7 +212,7 @@ div.messagesContainer header.mainPage {
   background-color: rgb(255, 255, 255);
   width: 100vw;
   height: 80px;
-  padding: 0 22px;
+  padding-left: 22px;
   box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.05);
 }
 div.messagesContainer header.mainPage img {
@@ -136,6 +222,10 @@ div.messagesContainer header.mainPage img {
 div.messagesContainer header.mainPage ion-icon {
   width: 45px;
   height: 45px;
+  padding: 17.5px 22px;
+}
+div.messagesContainer header.mainPage ion-icon:hover {
+  cursor: pointer;
 }
 div.messagesContainer main {
   height: calc(100vh - 166px);
@@ -154,7 +244,10 @@ div.messagesContainer footer {
 div.messagesContainer footer ion-icon {
   width: 32px;
   height: 100%;
-  margin: 0 18px;
+  padding: 0 18px;
+}
+div.messagesContainer footer ion-icon:hover {
+  cursor: pointer;
 }
 div.messagesContainer footer > div {
   padding: 15px 0 1px 0;
@@ -170,6 +263,9 @@ div.messagesContainer footer > div input {
   line-height: 25px;
   letter-spacing: 0em;
   text-align: left;
+}
+div.messagesContainer footer > div input:hover {
+  cursor: pointer;
 }
 div.messagesContainer footer > div input:-moz-placeholder-shown {
   font-style: italic;
@@ -219,7 +315,9 @@ div.messagesContainer footer > div > div.msg-infos {
 */
 li.msg {
   width: 100vw;
-  min-height: 40px;
+  min-height: -webkit-fit-content;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
   padding: 8.5px 9px 8.5px 8px;
   font-size: 14px;
   line-height: 23px;
@@ -236,6 +334,7 @@ li.msg.private_message {
   background-color: rgb(255, 222, 222);
 }
 li.msg p {
+  display: inline;
   height: 23px;
 }
 
@@ -292,6 +391,13 @@ div.sideMenuContainer div.sideMenu li {
   display: flex;
   justify-content: space-between;
 }
+div.sideMenuContainer div.sideMenu li:hover {
+  cursor: pointer;
+}
+div.sideMenuContainer div.sideMenu li:hover div,
+div.sideMenuContainer div.sideMenu li ion-icon {
+  cursor: pointer;
+}
 div.sideMenuContainer div.sideMenu li div {
   max-width: 205px;
   display: flex;
@@ -305,9 +411,9 @@ div.sideMenuContainer div.sideMenu li div ion-icon {
 }
 div.sideMenuContainer div.sideMenu li div div {
   overflow: hidden;
-  max-width: 100%;
 }
 div.sideMenuContainer div.sideMenu li div div div.userName {
+  max-width: 176px;
   height: 36px;
 }
 div.sideMenuContainer div.sideMenu li > ion-icon {
