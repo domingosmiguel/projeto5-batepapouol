@@ -19,8 +19,8 @@ main.loginPage button#loginButton {
      top: calc((var(--vh, 1vh) * 42.7) + 69px);
 }
 main.loginPage .loader {
-     margin: calc((100vh - 1em) * 0.5) auto;
-     margin: calc((var(--vh, 1vh) - 1em) * 50) auto;
+     margin: calc((100vh - 1em) / 2) auto;
+     margin: calc((var(--vh, 1vh) * 100 - 1em) / 2) auto;
 }
 div.messagesContainer main {
      height: calc(100vh - 166px);

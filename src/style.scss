@@ -130,13 +130,14 @@ main.loginPage {
           width: 0;
      }
      .loader {
-          color: #000000;
-          font-size: 20px;
+          color: $black;
+          font-size: 25px;
+          display: flex;
+          justify-content: center;
           width: 1em;
           height: 1em;
           border-radius: 50%;
           position: relative;
-          text-indent: -9999em;
           -webkit-animation: load4 1.3s infinite linear;
           animation: load4 1.3s infinite linear;
           -webkit-transform: translateZ(0);
