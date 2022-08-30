@@ -29,10 +29,11 @@ To show the result, the application was posted on [Github Pages](https://domingo
 
 ## **Comments**:
 
-With good time management, I did the whole project keeping in mind some practices that I found interesting, such as:
+With the beginning of my studies about clean code, I did the whole project keeping in mind some good practices that I found interesting, such as:
 
 -    All the html you see is dynamically generated, there is not a single line written in the html file
 -    Better organization of functions, with better-defined and optimized scopes
+-    Applying Decompose Condition and Extract Method as seen in [Refactoring Guru](https://refactoring.guru/), I manage to make my code much clearer and maintainable.
 -    Use of variables and SASS for better code organization
 
 ## Built with:
