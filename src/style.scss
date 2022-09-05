@@ -1,3 +1,6 @@
+---
+---
+
 /*  
    =========
      Fonts
@@ -29,23 +32,23 @@ $sideMenuWidth: 259px;
    =================
 */
 ::-webkit-scrollbar {
-     display: none;
+    display: none;
 }
 * {
-     cursor: default;
-     box-sizing: border-box;
+    cursor: default;
+    box-sizing: border-box;
 }
 .dsp-flex {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 body {
-     width: $width;
-     background-color: $grey;
-     font-family: $font;
-     font-weight: 400;
-     display: grid;
+    width: $width;
+    background-color: $grey;
+    font-family: $font;
+    font-weight: 400;
+    display: grid;
 }
 /*  
    ==============
@@ -53,172 +56,172 @@ body {
    ==============
 */
 main.loginPage {
-     background-color: $white;
+    background-color: $white;
 
-     img {
-          width: 130px;
-          position: absolute;
-          left: calc(($width - 130px) / 2);
-     }
-     ::-webkit-input-placeholder {
-          color: $time-grey;
-     }
-     input#userName {
-          width: 261px;
-          height: 54px;
-          color: $time-grey;
-          font-size: 18px;
-          line-height: 25px;
-          text-align: center;
-          border: 1px solid $dark-grey;
-          border-radius: 4px;
-          position: absolute;
-          left: calc(($width - 261px) / 2);
-          &:hover {
-               cursor: pointer;
-          }
-          &:focus {
-               outline: none;
-          }
-          &:focus::placeholder {
-               color: transparent;
-          }
-          &.hidden {
-               display: none;
-          }
-     }
-     button#loginButton {
-          width: 109px;
-          height: 45px;
-          border: none;
-          border-radius: 9px;
-          margin-top: 15px;
-          font-size: 18px;
-          line-height: 25px;
-          background-color: $button-grey;
-          color: $button-text-grey;
-          position: absolute;
-          left: calc(($width - 109px) / 2);
-          transition: box-shadow 0.1s;
+    img {
+        width: 130px;
+        position: absolute;
+        left: calc(($width - 130px) / 2);
+    }
+    ::-webkit-input-placeholder {
+        color: $time-grey;
+    }
+    input#userName {
+        width: 261px;
+        height: 54px;
+        color: $time-grey;
+        font-size: 18px;
+        line-height: 25px;
+        text-align: center;
+        border: 1px solid $dark-grey;
+        border-radius: 4px;
+        position: absolute;
+        left: calc(($width - 261px) / 2);
+        &:hover {
+            cursor: pointer;
+        }
+        &:focus {
+            outline: none;
+        }
+        &:focus::placeholder {
+            color: transparent;
+        }
+        &.hidden {
+            display: none;
+        }
+    }
+    button#loginButton {
+        width: 109px;
+        height: 45px;
+        border: none;
+        border-radius: 9px;
+        margin-top: 15px;
+        font-size: 18px;
+        line-height: 25px;
+        background-color: $button-grey;
+        color: $button-text-grey;
+        position: absolute;
+        left: calc(($width - 109px) / 2);
+        transition: box-shadow 0.1s;
 
-          &:hover {
-               cursor: pointer;
-          }
-          &:active {
-               box-shadow: rgba(0, 0, 0, 0.24) 0px -3px 8px inset;
-          }
-          &.hidden {
-               display: none;
-          }
-     }
-     img:last-of-type.hidden {
-          visibility: none;
-          z-index: -2;
-          display: none;
-          color: transparent;
-          min-width: 0;
-          width: 0;
-     }
-     .loader {
-          color: $black;
-          font-size: 25px;
-          display: flex;
-          justify-content: center;
-          width: 1em;
-          height: 1em;
-          border-radius: 50%;
-          position: relative;
-          -webkit-animation: load4 1.3s infinite linear;
-          animation: load4 1.3s infinite linear;
-          -webkit-transform: translateZ(0);
-          -ms-transform: translateZ(0);
-          transform: translateZ(0);
-          &.hidden {
-               display: none;
-          }
-     }
-     @-webkit-keyframes load4 {
-          0%,
-          100% {
-               box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em,
-                    0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
-          }
-          12.5% {
-               box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em,
-                    -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
-          }
-          25% {
-               box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em,
-                    -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
-          }
-          37.5% {
-               box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em,
-                    -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
-          }
-          50% {
-               box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em,
-                    0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
-          }
-          62.5% {
-               box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0,
-                    -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
-          }
-          75% {
-               box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em,
-                    0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
-          }
-          87.5% {
-               box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
-                    -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
-          }
-     }
-     @keyframes load4 {
-          0%,
-          100% {
-               box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em,
-                    0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
-          }
-          12.5% {
-               box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em,
-                    -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
-          }
-          25% {
-               box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em,
-                    -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
-          }
-          37.5% {
-               box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em,
-                    -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
-          }
-          50% {
-               box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em,
-                    0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
-          }
-          62.5% {
-               box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0,
-                    -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
-          }
-          75% {
-               box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em,
-                    0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
-          }
-          87.5% {
-               box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
-                    -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
-          }
-     }
-     p#errorMessage {
-          width: 261px;
-          text-align: center;
-          color: red;
-          font-size: 20px;
-          font-weight: 700;
-          position: absolute;
-          left: calc(($width - 261px) / 2);
-          &.hidden {
-               display: none;
-          }
-     }
+        &:hover {
+            cursor: pointer;
+        }
+        &:active {
+            box-shadow: rgba(0, 0, 0, 0.24) 0px -3px 8px inset;
+        }
+        &.hidden {
+            display: none;
+        }
+    }
+    img:last-of-type.hidden {
+        visibility: none;
+        z-index: -2;
+        display: none;
+        color: transparent;
+        min-width: 0;
+        width: 0;
+    }
+    .loader {
+        color: $black;
+        font-size: 25px;
+        display: flex;
+        justify-content: center;
+        width: 1em;
+        height: 1em;
+        border-radius: 50%;
+        position: relative;
+        -webkit-animation: load4 1.3s infinite linear;
+        animation: load4 1.3s infinite linear;
+        -webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
+        &.hidden {
+            display: none;
+        }
+    }
+    @-webkit-keyframes load4 {
+        0%,
+        100% {
+            box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+                -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+        }
+        12.5% {
+            box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em,
+                -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+        }
+        25% {
+            box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em,
+                -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+        }
+        37.5% {
+            box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em,
+                -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+        }
+        50% {
+            box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em,
+                -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+        }
+        62.5% {
+            box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0,
+                -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+        }
+        75% {
+            box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em,
+                0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+        }
+        87.5% {
+            box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+                -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+        }
+    }
+    @keyframes load4 {
+        0%,
+        100% {
+            box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+                -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+        }
+        12.5% {
+            box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em,
+                -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+        }
+        25% {
+            box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em,
+                -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+        }
+        37.5% {
+            box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em,
+                -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+        }
+        50% {
+            box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em,
+                -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+        }
+        62.5% {
+            box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0,
+                -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+        }
+        75% {
+            box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em,
+                0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+        }
+        87.5% {
+            box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+                -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+        }
+    }
+    p#errorMessage {
+        width: 261px;
+        text-align: center;
+        color: red;
+        font-size: 20px;
+        font-weight: 700;
+        position: absolute;
+        left: calc(($width - 261px) / 2);
+        &.hidden {
+            display: none;
+        }
+    }
 }
 /*  
    ===============
@@ -226,92 +229,92 @@ main.loginPage {
    ===============
 */
 div.messagesContainer {
-     grid-column: 1;
-     grid-row: 1;
+    grid-column: 1;
+    grid-row: 1;
 
-     header.mainPage {
-          background-color: $white;
-          width: $width;
-          height: 80px;
-          padding-left: 22px;
-          box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.05);
+    header.mainPage {
+        background-color: $white;
+        width: $width;
+        height: 80px;
+        padding-left: 22px;
+        box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.05);
 
-          img {
-               margin-top: 2px;
-               width: 75px;
-          }
-          ion-icon {
-               width: 45px;
-               height: 45px;
-               padding: 17.5px 22px;
-               &:hover {
+        img {
+            margin-top: 2px;
+            width: 75px;
+        }
+        ion-icon {
+            width: 45px;
+            height: 45px;
+            padding: 17.5px 22px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    main {
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    ul {
+        padding-top: 26px;
+    }
+    footer {
+        background-color: $white;
+        width: $width;
+        height: 80px;
+        padding-left: 18px;
+        box-shadow: 0px -4px 6px 0px rgba(0, 0, 0, 0.05);
+
+        ion-icon {
+            width: 32px;
+            height: 100%;
+            padding: 0 18px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        & > div {
+            padding: 15px 0 1px 0;
+
+            ::-webkit-input-placeholder {
+                color: $black;
+            }
+            input {
+                height: 30px;
+                color: $black;
+                border: none;
+                font-size: 18px;
+                line-height: 25px;
+                letter-spacing: 0em;
+                text-align: left;
+
+                &:hover {
                     cursor: pointer;
-               }
-          }
-     }
-     main {
-          overflow-y: scroll;
-          overflow-x: hidden;
-     }
-     ul {
-          padding-top: 26px;
-     }
-     footer {
-          background-color: $white;
-          width: $width;
-          height: 80px;
-          padding-left: 18px;
-          box-shadow: 0px -4px 6px 0px rgba(0, 0, 0, 0.05);
-
-          ion-icon {
-               width: 32px;
-               height: 100%;
-               padding: 0 18px;
-               &:hover {
-                    cursor: pointer;
-               }
-          }
-          & > div {
-               padding: 15px 0 1px 0;
-
-               ::-webkit-input-placeholder {
-                    color: $black;
-               }
-               input {
-                    height: 30px;
-                    color: $black;
-                    border: none;
-                    font-size: 18px;
-                    line-height: 25px;
-                    letter-spacing: 0em;
-                    text-align: left;
-
-                    &:hover {
-                         cursor: pointer;
-                    }
-                    &:placeholder-shown {
-                         font-style: italic;
-                         width: calc(($width - 86px) * 0.8);
-                    }
-                    &:not(:placeholder-shown) {
-                         width: calc($width - 86px);
-                    }
-                    &:focus {
-                         outline: none;
-                    }
-                    &:focus::placeholder {
-                         color: transparent;
-                    }
-               }
-               & > div.msg-infos {
-                    color: rgb(80, 80, 80);
-                    font-weight: 300;
-                    font-size: 14px;
-                    line-height: 25px;
+                }
+                &:placeholder-shown {
+                    font-style: italic;
+                    width: calc(($width - 86px) * 0.8);
+                }
+                &:not(:placeholder-shown) {
                     width: calc($width - 86px);
-               }
-          }
-     }
+                }
+                &:focus {
+                    outline: none;
+                }
+                &:focus::placeholder {
+                    color: transparent;
+                }
+            }
+            & > div.msg-infos {
+                color: rgb(80, 80, 80);
+                font-weight: 300;
+                font-size: 14px;
+                line-height: 25px;
+                width: calc($width - 86px);
+            }
+        }
+    }
 }
 /*  
    ============
@@ -319,33 +322,33 @@ div.messagesContainer {
    ============
 */
 li.msg {
-     width: $width;
-     min-height: 40px;
-     padding: 8.5px 9px 8.5px 8px;
-     margin-bottom: 4px;
+    width: $width;
+    min-height: 40px;
+    padding: 8.5px 9px 8.5px 8px;
+    margin-bottom: 4px;
 
-     &.status {
-          background-color: $dark-grey;
-     }
-     &.message {
-          background-color: $white;
-     }
-     &.private_message {
-          background-color: $pink;
-     }
-     p {
-          display: inline;
-          font-size: 14px;
-          line-height: 23px;
-     }
-     b {
-          font-weight: 700;
+    &.status {
+        background-color: $dark-grey;
+    }
+    &.message {
+        background-color: $white;
+    }
+    &.private_message {
+        background-color: $pink;
+    }
+    p {
+        display: inline;
+        font-size: 14px;
+        line-height: 23px;
+    }
+    b {
+        font-weight: 700;
 
-          &.time {
-               color: $time-grey;
-               font-weight: 400;
-          }
-     }
+        &.time {
+            color: $time-grey;
+            font-weight: 400;
+        }
+    }
 }
 /*  
    =============
@@ -353,97 +356,97 @@ li.msg {
    =============
 */
 div.sideMenuContainer {
-     visibility: hidden;
-     grid-column: 1;
-     grid-row: 1;
-     width: $width;
-     z-index: 1;
-     display: flex;
+    visibility: hidden;
+    grid-column: 1;
+    grid-row: 1;
+    width: $width;
+    z-index: 1;
+    display: flex;
 
-     &.clicked {
-          visibility: visible;
-     }
-     div.blackOpaque {
-          width: calc($width - $sideMenuWidth);
-          background-color: $black;
-          opacity: 0.6;
-     }
-     div.sideMenu {
-          background-color: $white;
-          width: $sideMenuWidth;
-          padding: 0 20px;
+    &.clicked {
+        visibility: visible;
+    }
+    div.blackOpaque {
+        width: calc($width - $sideMenuWidth);
+        background-color: $black;
+        opacity: 0.6;
+    }
+    div.sideMenu {
+        background-color: $white;
+        width: $sideMenuWidth;
+        padding: 0 20px;
 
-          div.title {
-               color: $black;
-               font-weight: 700;
-               height: 80px;
-               font-size: 16px;
-               line-height: 19px;
-               justify-content: center;
-               text-align: center;
-               margin: 4px 0;
+        div.title {
+            color: $black;
+            font-weight: 700;
+            height: 80px;
+            font-size: 16px;
+            line-height: 19px;
+            justify-content: center;
+            text-align: center;
+            margin: 4px 0;
 
-               &:last-of-type {
-                    height: 53px;
-                    padding-top: 9px;
-               }
-          }
-          li {
-               width: 100%;
-               height: 36px;
-               font-size: 16px;
-               line-height: 40px;
-               padding: 0;
-               margin: 1px 0;
-               display: flex;
-               justify-content: space-between;
+            &:last-of-type {
+                height: 53px;
+                padding-top: 9px;
+            }
+        }
+        li {
+            width: 100%;
+            height: 36px;
+            font-size: 16px;
+            line-height: 40px;
+            padding: 0;
+            margin: 1px 0;
+            display: flex;
+            justify-content: space-between;
 
-               &:hover {
-                    cursor: pointer;
-               }
-               &:hover div,
-               ion-icon {
-                    cursor: pointer;
-               }
-               div {
-                    max-width: 205px;
-                    display: flex;
-                    flex-wrap: nowrap;
+            &:hover {
+                cursor: pointer;
+            }
+            &:hover div,
+            ion-icon {
+                cursor: pointer;
+            }
+            div {
+                max-width: 205px;
+                display: flex;
+                flex-wrap: nowrap;
+                overflow: hidden;
+
+                ion-icon {
+                    width: 22px;
+                    height: 40px;
+                    margin-right: 7px;
+                }
+                div {
                     overflow: hidden;
 
-                    ion-icon {
-                         width: 22px;
-                         height: 40px;
-                         margin-right: 7px;
+                    div.userName {
+                        max-width: 176px;
+                        height: 36px;
                     }
-                    div {
-                         overflow: hidden;
-
-                         div.userName {
-                              max-width: 176px;
-                              height: 36px;
-                         }
-                    }
-               }
-               & > ion-icon {
-                    display: none;
-                    color: $check-green;
-                    width: 14px;
-                    --ionicon-stroke-width: 96px;
-                    margin: auto 0;
-               }
-               &.check {
-                    & > ion-icon {
-                         display: block;
-                    }
-               }
-          }
-          div.usersContainer {
-               overflow-y: scroll;
-               overflow-x: hidden;
-               ul.users {
-                    margin: 1px 0;
-               }
-          }
-     }
+                }
+            }
+            & > ion-icon {
+                display: none;
+                color: $check-green;
+                width: 14px;
+                --ionicon-stroke-width: 96px;
+                margin: auto 0;
+            }
+            &.check {
+                & > ion-icon {
+                    display: block;
+                }
+            }
+        }
+        div.usersContainer {
+            overflow-y: scroll;
+            overflow-x: hidden;
+            ul.users {
+                margin: 1px 0;
+            }
+        }
+    }
 }
