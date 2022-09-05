@@ -4,15 +4,14 @@ This project was made with the aim of creating the front-end of a working chat s
 
 ## **Exercised Contents**:
 
--    OOJS using json data
--    API integration
--    DOM methods through vanilla Javascript (querySelector, addEventListener)
--    SASS to substitute CSS
--    Axios for integration with back-end
--    Responsiveness
--    Javascript methods (setInterval, clearInterval)
--    Handling CSS properties (transform, transition)
--    Basic Javascript (functions, forEach, some) and best practices
+-   OOJS using json data
+-   DOM methods through vanilla Javascript (querySelector, addEventListener)
+-   SASS to substitute CSS
+-   Axios for API integration
+-   Responsiveness
+-   Javascript methods (setInterval, clearInterval)
+-   Handling CSS properties (transform, transition)
+-   Basic Javascript (functions, forEach, some) and best practices
 
 ## **Results**:
 
@@ -24,17 +23,17 @@ To show the result, the application was posted on [Github Pages](https://domingo
 
 ## **How To Run**:
 
--    Clone repository
--    Open index.html in your browser
+-   Clone repository
+-   Open index.html in your browser
 
 ## **Comments**:
 
 With the beginning of my studies about clean code, I did the whole project keeping in mind some good practices that I found interesting, such as:
 
--    All the html you see is dynamically generated, there is not a single line written in the html file
--    Better organization of functions, with better-defined and optimized scopes
--    Applying Decompose Condition and Extract Method as seen in [Refactoring Guru](https://refactoring.guru/), I manage to make my code much clearer and maintainable.
--    Use of variables and SASS for better code organization
+-   All the html you see is dynamically generated, there is not a single line written in the html file
+-   Better organization of functions, with better-defined and optimized scopes
+-   Applying Decompose Condition and Extract Method as seen in [Refactoring Guru](https://refactoring.guru/), I manage to make my code much clearer and maintainable.
+-   Use of variables and SASS for better code organization
 
 ## Built with:
 
