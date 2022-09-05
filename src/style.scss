@@ -23,7 +23,6 @@ $time-grey: rgb(170, 170, 170);
 $button-grey: rgb(231, 231, 231);
 $button-text-grey: rgb(105, 105, 105);
 $check-green: rgb(40, 187, 37);
-$sideMenuWidth: 259px;
 
 /*  
    =================
@@ -366,13 +365,13 @@ div.sideMenuContainer {
         visibility: visible;
     }
     div.blackOpaque {
-        width: calc(100vw - $sideMenuWidth);
+        width: calc(100vw - 259px);
         background-color: $black;
         opacity: 0.6;
     }
     div.sideMenu {
         background-color: $white;
-        width: $sideMenuWidth;
+        width: 259px;
         padding: 0 20px;
 
         div.title {
