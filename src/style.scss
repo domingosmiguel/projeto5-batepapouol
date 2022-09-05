@@ -23,7 +23,6 @@ $time-grey: rgb(170, 170, 170);
 $button-grey: rgb(231, 231, 231);
 $button-text-grey: rgb(105, 105, 105);
 $check-green: rgb(40, 187, 37);
-$width: 100%;
 $sideMenuWidth: 259px;
 
 /*  
@@ -44,7 +43,7 @@ $sideMenuWidth: 259px;
     align-items: center;
 }
 body {
-    width: $width;
+    width: 100vw;
     background-color: $grey;
     font-family: $font;
     font-weight: 400;
@@ -61,7 +60,7 @@ main.loginPage {
     img {
         width: 130px;
         position: absolute;
-        left: calc(($width - 130px) / 2);
+        left: calc((100vw - 130px) / 2);
     }
     ::-webkit-input-placeholder {
         color: $time-grey;
@@ -76,7 +75,7 @@ main.loginPage {
         border: 1px solid $dark-grey;
         border-radius: 4px;
         position: absolute;
-        left: calc(($width - 261px) / 2);
+        left: calc((100vw - 261px) / 2);
         &:hover {
             cursor: pointer;
         }
@@ -101,7 +100,7 @@ main.loginPage {
         background-color: $button-grey;
         color: $button-text-grey;
         position: absolute;
-        left: calc(($width - 109px) / 2);
+        left: calc((100vw - 109px) / 2);
         transition: box-shadow 0.1s;
 
         &:hover {
@@ -217,7 +216,7 @@ main.loginPage {
         font-size: 20px;
         font-weight: 700;
         position: absolute;
-        left: calc(($width - 261px) / 2);
+        left: calc((100vw - 261px) / 2);
         &.hidden {
             display: none;
         }
@@ -234,7 +233,7 @@ div.messagesContainer {
 
     header.mainPage {
         background-color: $white;
-        width: $width;
+        width: 100vw;
         height: 80px;
         padding-left: 22px;
         box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.05);
@@ -261,7 +260,7 @@ div.messagesContainer {
     }
     footer {
         background-color: $white;
-        width: $width;
+        width: 100vw;
         height: 80px;
         padding-left: 18px;
         box-shadow: 0px -4px 6px 0px rgba(0, 0, 0, 0.05);
@@ -294,10 +293,10 @@ div.messagesContainer {
                 }
                 &:placeholder-shown {
                     font-style: italic;
-                    width: calc(($width - 86px) * 0.8);
+                    width: calc((100vw - 86px) * 0.8);
                 }
                 &:not(:placeholder-shown) {
-                    width: calc($width - 86px);
+                    width: calc(100vw - 86px);
                 }
                 &:focus {
                     outline: none;
@@ -311,7 +310,7 @@ div.messagesContainer {
                 font-weight: 300;
                 font-size: 14px;
                 line-height: 25px;
-                width: calc($width - 86px);
+                width: calc(100vw - 86px);
             }
         }
     }
@@ -322,7 +321,7 @@ div.messagesContainer {
    ============
 */
 li.msg {
-    width: $width;
+    width: 100vw;
     min-height: 40px;
     padding: 8.5px 9px 8.5px 8px;
     margin-bottom: 4px;
@@ -359,7 +358,7 @@ div.sideMenuContainer {
     visibility: hidden;
     grid-column: 1;
     grid-row: 1;
-    width: $width;
+    width: 100vw;
     z-index: 1;
     display: flex;
 
@@ -367,7 +366,7 @@ div.sideMenuContainer {
         visibility: visible;
     }
     div.blackOpaque {
-        width: calc($width - $sideMenuWidth);
+        width: calc(100vw - $sideMenuWidth);
         background-color: $black;
         opacity: 0.6;
     }
